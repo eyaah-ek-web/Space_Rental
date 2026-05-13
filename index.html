@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Space Rental Maroc</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#c0392b;
+  --red2:#e74c3c;
+  --red-dim:rgba(192,57,43,0.12);
+  --cream:#f5f0e8;
+  --warm:#ede7d9;
+  --dark:#141210;
+  --dark2:#1e1a17;
+  --dark3:#272320;
+  --border:rgba(255,255,255,0.08);
+  --border2:rgba(255,255,255,0.14);
+  --text:#f0ebe2;
+  --muted:rgba(240,235,226,0.5);
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--dark);color:var(--text);overflow-x:hidden;font-size:15px}
+
+/* ── PAGE SWITCHER ── */
+.page{display:none}
+.page.active{display:block}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:68px;display:flex;justify-content:space-between;align-items:center;
+  padding:0 56px;
+  background:rgba(20,18,16,0.9);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:var(--serif);font-size:20px;font-weight:900;
+  color:var(--text);letter-spacing:-.01em;cursor:pointer;
+  display:flex;align-items:center;gap:8px;
+}
+.nav-logo-dot{
+  width:8px;height:8px;border-radius:50%;background:var(--red);
+  box-shadow:0 0 8px var(--red);
+}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-link{
+  font-size:13px;font-weight:400;color:var(--muted);
+  padding:8px 16px;border-radius:6px;cursor:pointer;
+  transition:color .2s,background .2s;border:none;background:none;
+  font-family:var(--sans);
+}
+.nav-link:hover{color:var(--text);background:rgba(255,255,255,0.05)}
+.nav-link.active-link{color:var(--text)}
+.nav-cta{
+  font-size:13px;font-weight:500;color:white;
+  padding:9px 20px;border-radius:6px;cursor:pointer;
+  background:var(--red);border:none;font-family:var(--sans);
+  transition:background .2s,transform .15s;margin-left:8px;
+}
+.nav-cta:hover{background:#a93226;transform:translateY(-1px)}
+
+/* ══════════════════════════════════
+   PAGE 1 — HOME
+══════════════════════════════════ */
+#home{padding-top:68px}
+
+/* Hero */
+.hero{
+  min-height:92vh;display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 70% 50%, rgba(192,57,43,0.08) 0%, transparent 65%);
+  pointer-events:none;
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 56px;
+  border-right:1px solid var(--border);
+  position:relative;z-index:2;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--red-dim);border:1px solid rgba(192,57,43,0.3);
+  color:#e07060;font-size:11px;font-weight:500;letter-spacing:.1em;
+  text-transform:uppercase;padding:5px 14px;border-radius:50px;
+  margin-bottom:28px;width:fit-content;
+}
+.hero-tag-pulse{width:5px;height:5px;border-radius:50%;background:#e07060;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+h1.hero-title{
+  font-family:var(--serif);font-size:clamp(3rem,5vw,5.2rem);
+  font-weight:900;line-height:1;letter-spacing:-.02em;
+  margin-bottom:24px;
+}
+h1.hero-title .italic{font-style:italic;color:var(--red2);font-weight:300}
+h1.hero-title .thin{font-weight:300;color:var(--muted)}
+
+.hero-desc{
+  font-size:15px;line-height:1.8;color:var(--muted);
+  max-width:420px;margin-bottom:44px;font-weight:300;
+}
+
+.search-hero{
+  max-width:500px;
+  background:var(--dark2);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:10px;padding:5px 5px 5px 18px;
+  display:flex;align-items:center;gap:12px;
+  transition:border-color .3s;margin-bottom:40px;
+}
+.search-hero:focus-within{border-color:rgba(192,57,43,.5)}
+.search-hero svg{flex-shrink:0;opacity:.4}
+.search-hero input{
+  flex:1;background:none;border:none;outline:none;
+  font-family:var(--sans);font-size:14px;color:var(--text);font-weight:300;
+}
+.search-hero input::placeholder{color:var(--muted)}
+.search-btn{
+  background:var(--red);color:white;border:none;
+  padding:11px 22px;border-radius:7px;font-family:var(--sans);
+  font-size:13px;font-weight:500;cursor:pointer;transition:background .2s;white-space:nowrap;
+}
+.search-btn:hover{background:#a93226}
+
+.hero-stats{display:flex;gap:32px}
+.stat-n{font-family:var(--serif);font-size:2rem;font-weight:900;line-height:1}
+.stat-n sup{font-size:.85rem;color:var(--red2);font-family:var(--sans);font-weight:400}
+.stat-l{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:4px}
+
+/* Hero Right — Visual */
+.hero-right{position:relative;overflow:hidden;background:var(--dark2)}
+.hero-grid{width:100%;height:100%;display:grid;grid-template-rows:55% 45%}
+.hg-main{
+  position:relative;overflow:hidden;
+  background:linear-gradient(145deg,#1a1008 0%,#2a1810 60%,#1a0d0d 100%);
+}
+.hg-main svg{width:100%;height:100%;position:absolute;inset:0}
+.hg-bot{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.hg-card{
+  background:var(--dark2);padding:18px 20px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;overflow:hidden;
+}
+.hg-card-label{
+  position:relative;z-index:2;font-size:9px;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--muted);margin-bottom:4px;
+}
+.hg-card-val{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--text);position:relative;z-index:2}
+.hg-card-sub{font-size:11px;color:var(--muted);margin-top:2px;position:relative;z-index:2}
+.hg-card-tag{
+  position:absolute;top:14px;right:14px;z-index:2;
+  font-size:9px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;
+  padding:4px 10px;border-radius:50px;
+}
+.tag-red{background:rgba(192,57,43,.2);color:#e07060;border:1px solid rgba(192,57,43,.3)}
+.tag-teal{background:rgba(26,140,100,.15);color:#5ab89a;border:1px solid rgba(26,140,100,.3)}
+
+/* Floating card on hero */
+.hero-float{
+  position:absolute;bottom:20px;left:20px;
+  background:rgba(20,18,16,.88);backdrop-filter:blur(16px);
+  border:1px solid var(--border2);border-radius:10px;padding:14px 18px;z-index:5;
+}
+.hf-label{font-size:9.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:3px}
+.hf-val{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--red2)}
+.hf-sub{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* Section Popular */
+.section{padding:88px 56px;max-width:1400px;margin:0 auto}
+.sec-eye{font-size:10.5px;text-transform:uppercase;letter-spacing:.18em;color:var(--red2);margin-bottom:10px;font-weight:500}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
+h2.sec-title{
+  font-family:var(--serif);font-size:clamp(2rem,3.5vw,3.2rem);
+  font-weight:900;line-height:1.05;
+}
+h2.sec-title em{font-style:italic;font-weight:300;color:var(--muted)}
+.see-all{
+  font-size:12.5px;color:var(--red2);cursor:pointer;
+  display:flex;align-items:center;gap:5px;
+  transition:gap .2s;white-space:nowrap;border:none;background:none;font-family:var(--sans);
+}
+.see-all:hover{gap:9px}
+
+/* Cards */
+.cards-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  background:var(--dark2);border:1px solid var(--border);border-radius:14px;
+  overflow:hidden;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);
+}
+.card:hover{border-color:rgba(192,57,43,.35);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.5)}
+.card-vis{height:180px;position:relative;overflow:hidden}
+.card-vis svg{width:100%;height:100%}
+.card-voverlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,16,.7) 0%,transparent 55%)}
+.cbadge{
+  position:absolute;top:12px;left:12px;
+  font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
+  padding:4px 10px;border-radius:50px;
+}
+.cbadge-red{background:var(--red);color:white}
+.cbadge-warm{background:rgba(212,134,10,.2);color:#e8a84a;border:1px solid rgba(212,134,10,.3)}
+.cbadge-glass{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);color:var(--text);border:1px solid rgba(255,255,255,.2)}
+.ccap{
+  position:absolute;bottom:12px;right:12px;
+  background:rgba(20,18,16,.75);backdrop-filter:blur(6px);
+  border:1px solid var(--border2);color:var(--muted);
+  font-size:10px;padding:4px 10px;border-radius:50px;
+  display:flex;align-items:center;gap:4px;
+}
+.card-body{padding:18px 20px}
+.card-type{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--red2);margin-bottom:6px;font-weight:500}
+.card-name{font-family:var(--serif);font-size:1.2rem;font-weight:700;margin-bottom:5px}
+.card-loc{font-size:12px;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:4px}
+.card-foot{display:flex;justify-content:space-between;align-items:center;padding-top:13px;border-top:1px solid var(--border)}
+.card-price{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:#e8a84a}
+.card-price small{font-family:var(--sans);font-size:10px;color:var(--muted);font-weight:300}
+.card-res{
+  font-size:11.5px;font-weight:500;color:var(--red2);
+  padding:8px 16px;border:1px solid rgba(192,57,43,.35);border-radius:6px;
+  cursor:pointer;background:none;font-family:var(--sans);transition:all .2s;
+}
+.card-res:hover{background:var(--red);color:white;border-color:var(--red)}
+
+/* Avantages */
+.avantages{padding:0 56px 88px;max-width:1400px;margin:0 auto}
+.avantages h2{font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:900;margin-bottom:44px}
+.avantages h2 em{font-style:italic;font-weight:300;color:var(--muted)}
+.av-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.av-item{background:var(--dark2);padding:32px 28px;transition:background .25s}
+.av-item:hover{background:var(--dark3)}
+.av-icon{
+  width:40px;height:40px;border-radius:8px;
+  background:var(--red-dim);border:1px solid rgba(192,57,43,.25);
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+}
+.av-icon svg{width:18px;height:18px;stroke:var(--red2);fill:none;stroke-width:1.8}
+.av-title{font-family:var(--serif);font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.av-desc{font-size:13px;line-height:1.75;color:var(--muted);font-weight:300}
+
+/* Video section */
+.video-sec{padding:0 56px 88px}
+.video-wrap{
+  border-radius:18px;overflow:hidden;border:1px solid var(--border);
+  background:var(--dark3);position:relative;
+}
+.video-wrap video{width:100%;max-height:480px;object-fit:cover;display:block}
+.video-foot{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:56px 44px 36px;
+  background:linear-gradient(transparent,rgba(14,12,10,.95));
+  display:flex;justify-content:space-between;align-items:flex-end;
+}
+.vf-eye{font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--red2);margin-bottom:7px}
+.vf-title{font-family:var(--serif);font-size:1.75rem;font-weight:900}
+.vf-btn{
+  background:white;color:var(--dark);border:none;
+  padding:13px 28px;border-radius:8px;font-family:var(--sans);
+  font-size:13px;font-weight:500;cursor:pointer;transition:transform .2s;white-space:nowrap;
+  display:flex;align-items:center;gap:8px;
+}
+.vf-btn:hover{transform:scale(1.03)}
+.vf-btn svg{width:14px;height:14px;fill:var(--dark)}
+
+/* ══════════════════════════════════
+   PAGE 2 — ESPACES (filtres + carte)
+══════════════════════════════════ */
+#espaces{padding-top:68px}
+
+.esp-hero{
+  background:var(--dark2);border-bottom:1px solid var(--border);
+  padding:44px 56px 36px;
+}
+.esp-hero-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px}
+.esp-hero h1{font-family:var(--serif);font-size:2.8rem;font-weight:900;line-height:1}
+.esp-hero h1 em{font-style:italic;font-weight:300;color:var(--muted)}
+.esp-count{font-size:13px;color:var(--muted);margin-top:6px}
+.esp-count strong{color:var(--red2);font-weight:500}
+
+.search-esp{
+  background:var(--dark);border:1px solid rgba(255,255,255,.12);
+  border-radius:8px;padding:4px 4px 4px 16px;
+  display:flex;align-items:center;gap:10px;max-width:540px;
+  transition:border-color .3s;
+}
+.search-esp:focus-within{border-color:rgba(192,57,43,.5)}
+.search-esp input{flex:1;background:none;border:none;outline:none;font-family:var(--sans);font-size:13.5px;color:var(--text)}
+.search-esp input::placeholder{color:var(--muted)}
+
+.esp-layout{display:grid;grid-template-columns:240px 1fr 300px;gap:0;min-height:calc(100vh - 200px)}
+
+/* Sidebar filtres */
+.filters-sidebar{
+  border-right:1px solid var(--border);padding:28px 24px;
+  position:sticky;top:68px;height:calc(100vh - 68px);overflow-y:auto;
+}
+.filters-sidebar::-webkit-scrollbar{width:3px}
+.filters-sidebar::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+.filter-head{font-size:11px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted);margin-bottom:16px;font-weight:500}
+.filter-group{margin-bottom:24px}
+.filter-label{font-size:12px;color:var(--muted);margin-bottom:8px;font-weight:400}
+.filter-select{
+  width:100%;background:var(--dark);border:1px solid var(--border2);
+  color:var(--text);font-family:var(--sans);font-size:13px;
+  padding:9px 12px;border-radius:7px;cursor:pointer;outline:none;
+  transition:border-color .2s;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(240,235,226,0.4)' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 10px center;padding-right:30px;
+}
+.filter-select:focus{border-color:rgba(192,57,43,.5)}
+.filter-range{width:100%;accent-color:var(--red);cursor:pointer;margin-top:4px}
+.filter-val{font-size:12px;color:var(--red2);font-weight:500;text-align:right;margin-top:4px}
+.filter-checks{display:flex;flex-direction:column;gap:8px}
+.filter-check{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--muted)}
+.filter-check input{accent-color:var(--red);cursor:pointer}
+.filter-check:hover{color:var(--text)}
+.filter-apply{
+  width:100%;background:var(--red);color:white;border:none;
+  padding:11px;border-radius:7px;font-family:var(--sans);
+  font-size:13px;font-weight:500;cursor:pointer;
+  transition:background .2s;margin-top:8px;
+}
+.filter-apply:hover{background:#a93226}
+.filter-reset{
+  width:100%;background:none;color:var(--muted);border:1px solid var(--border2);
+  padding:9px;border-radius:7px;font-family:var(--sans);
+  font-size:12px;cursor:pointer;transition:all .2s;margin-top:8px;
+}
+.filter-reset:hover{border-color:var(--border);color:var(--text)}
+
+/* Main content espaces */
+.esp-main{padding:28px 32px;overflow-y:auto;max-height:calc(100vh - 68px - 160px)}
+.esp-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.esp-sort{display:flex;gap:8px}
+.sort-btn{
+  font-size:12px;padding:7px 14px;border-radius:6px;cursor:pointer;
+  border:1px solid var(--border2);background:none;color:var(--muted);
+  font-family:var(--sans);transition:all .2s;
+}
+.sort-btn:hover,.sort-btn.active-sort{background:var(--red-dim);border-color:rgba(192,57,43,.3);color:var(--red2)}
+.esp-view{display:flex;gap:4px}
+.view-btn{
+  width:32px;height:32px;border-radius:6px;border:1px solid var(--border2);
+  background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.view-btn svg{width:14px;height:14px;stroke:var(--muted);fill:none;stroke-width:2}
+.view-btn:hover,.view-btn.active-view{background:var(--red-dim);border-color:rgba(192,57,43,.3)}
+.view-btn.active-view svg{stroke:var(--red2)}
+
+.esp-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.esp-card{
+  background:var(--dark2);border:1px solid var(--border);border-radius:10px;
+  overflow:hidden;cursor:pointer;transition:all .25s;display:flex;flex-direction:column;
+}
+.esp-card:hover{border-color:rgba(192,57,43,.35);transform:translateY(-3px)}
+.esp-card-img{height:140px;position:relative;overflow:hidden;flex-shrink:0}
+.esp-card-img svg{width:100%;height:100%}
+.esp-card-body{padding:14px 16px;flex:1;display:flex;flex-direction:column}
+.esp-card-type{font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--red2);margin-bottom:4px;font-weight:500}
+.esp-card-name{font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:3px;line-height:1.2}
+.esp-card-loc{font-size:11.5px;color:var(--muted);margin-bottom:10px}
+.esp-card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.esp-card-price{font-family:var(--serif);font-size:1rem;font-weight:700;color:#e8a84a}
+.esp-card-price small{font-family:var(--sans);font-size:10px;color:var(--muted);font-weight:300}
+.esp-card-btn{font-size:11px;color:var(--red2);padding:6px 12px;border:1px solid rgba(192,57,43,.3);border-radius:5px;cursor:pointer;background:none;font-family:var(--sans);transition:all .2s}
+.esp-card-btn:hover{background:var(--red);color:white;border-color:var(--red)}
+
+/* Carte interactive */
+.map-sidebar{
+  border-left:1px solid var(--border);
+  position:sticky;top:68px;height:calc(100vh - 68px - 160px);
+  display:flex;flex-direction:column;
+}
+.map-head{padding:18px 20px;border-bottom:1px solid var(--border);flex-shrink:0}
+.map-head-title{font-size:12px;font-weight:500;color:var(--text);margin-bottom:2px}
+.map-head-sub{font-size:11px;color:var(--muted)}
+.map-area{flex:1;position:relative;overflow:hidden;background:#111}
+.map-area svg{width:100%;height:100%}
+.map-pin{cursor:pointer;transition:transform .2s}
+.map-pin:hover{transform:scale(1.3)}
+.map-legend{padding:14px 20px;border-top:1px solid var(--border);flex-shrink:0}
+.map-legend-title{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px;font-weight:500}
+.map-items{display:flex;flex-direction:column;gap:8px}
+.map-item{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:8px 12px;background:var(--dark);border-radius:6px;border:1px solid var(--border);cursor:pointer;transition:border-color .2s}
+.map-item:hover{border-color:rgba(192,57,43,.35)}
+.map-item-name{color:var(--text);font-weight:400}
+.map-item-price{color:#e8a84a;font-weight:500}
+.map-cta{
+  margin:0 20px 16px;background:var(--red);color:white;border:none;
+  padding:12px;border-radius:7px;font-family:var(--sans);font-size:13px;font-weight:500;
+  cursor:pointer;width:calc(100% - 40px);transition:background .2s;
+}
+.map-cta:hover{background:#a93226}
+
+/* ══════════════════════════════════
+   PAGE 3 — LISTING
+══════════════════════════════════ */
+#listing{padding-top:68px}
+.listing-hero{
+  background:var(--dark2);border-bottom:1px solid var(--border);
+  padding:40px 56px 32px;
+}
+.listing-hero-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:22px}
+.listing-hero h1{font-family:var(--serif);font-size:2.6rem;font-weight:900;line-height:1}
+.listing-hero h1 em{font-style:italic;font-weight:300;color:var(--muted)}
+.listing-count{font-size:13px;color:var(--muted);margin-top:5px}
+.listing-count strong{color:var(--red2);font-weight:500}
+
+.listing-search{
+  background:var(--dark);border:1px solid rgba(255,255,255,.12);
+  border-radius:8px;padding:4px 4px 4px 16px;
+  display:flex;align-items:center;gap:10px;max-width:480px;
+  transition:border-color .3s;
+}
+.listing-search:focus-within{border-color:rgba(192,57,43,.5)}
+.listing-search input{flex:1;background:none;border:none;outline:none;font-family:var(--sans);font-size:13.5px;color:var(--text)}
+
+.listing-body{padding:32px 56px;max-width:1400px;margin:0 auto}
+.listing-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.listing-filters{display:flex;gap:8px;flex-wrap:wrap}
+.lf-pill{
+  font-size:12px;padding:7px 16px;border-radius:50px;cursor:pointer;
+  border:1px solid var(--border2);background:none;color:var(--muted);
+  font-family:var(--sans);transition:all .2s;
+}
+.lf-pill:hover,.lf-pill.lf-active{background:var(--red-dim);border-color:rgba(192,57,43,.35);color:var(--red2)}
+.listing-sort{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted)}
+.listing-sort select{
+  background:var(--dark2);border:1px solid var(--border2);
+  color:var(--text);font-family:var(--sans);font-size:12.5px;
+  padding:7px 28px 7px 12px;border-radius:7px;cursor:pointer;outline:none;
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(240,235,226,0.4)' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center;
+}
+
+.listing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:44px}
+.lg-card{
+  background:var(--dark2);border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);
+}
+.lg-card:hover{border-color:rgba(192,57,43,.35);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.45)}
+.lg-img{height:155px;position:relative;overflow:hidden}
+.lg-img svg{width:100%;height:100%}
+.lg-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,16,.65) 0%,transparent 50%)}
+.lg-badge{
+  position:absolute;top:10px;left:10px;
+  font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;
+  padding:3px 9px;border-radius:50px;
+}
+.lg-body{padding:14px 16px}
+.lg-type{font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--red2);margin-bottom:4px;font-weight:500}
+.lg-name{font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:3px;line-height:1.2}
+.lg-addr{font-size:11.5px;color:var(--muted);margin-bottom:4px}
+.lg-details{font-size:11px;color:rgba(240,235,226,.35);line-height:1.7;margin-bottom:10px}
+.lg-foot{display:flex;justify-content:space-between;align-items:center;padding-top:11px;border-top:1px solid var(--border)}
+.lg-price{font-family:var(--serif);font-size:1rem;font-weight:700;color:#e8a84a}
+.lg-price small{font-family:var(--sans);font-size:10px;color:var(--muted);font-weight:300}
+.lg-btn{
+  font-size:11px;color:white;padding:7px 13px;border:none;
+  border-radius:5px;cursor:pointer;background:var(--red);font-family:var(--sans);
+  transition:background .2s;
+}
+.lg-btn:hover{background:#a93226}
+
+/* Avis section */
+.avis-sec{background:var(--dark2);border-top:1px solid var(--border);padding:64px 56px}
+.avis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.avis-card{background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:22px}
+.avis-stars{color:var(--red2);font-size:13px;margin-bottom:10px}
+.avis-text{font-size:13.5px;line-height:1.75;color:var(--muted);font-weight:300;margin-bottom:14px;font-style:italic}
+.avis-author{display:flex;align-items:center;gap:10px}
+.avis-avatar{
+  width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:14px;font-weight:700;color:var(--text);flex-shrink:0;
+}
+.avis-name{font-size:13px;font-weight:500;color:var(--text)}
+.avis-sub{font-size:11px;color:var(--muted)}
+
+/* CTA */
+.cta-band{
+  margin:0 56px 80px;border-radius:16px;
+  background:linear-gradient(135deg,#1a0a08 0%,#2a1008 40%,#1a0808 100%);
+  border:1px solid rgba(192,57,43,.25);
+  padding:72px 80px;text-align:center;position:relative;overflow:hidden;
+}
+.cta-band::before{
+  content:'';position:absolute;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(192,57,43,.12) 0%,transparent 70%);
+  top:-80px;right:-40px;pointer-events:none;
+}
+.cta-eye{font-size:10.5px;text-transform:uppercase;letter-spacing:.18em;color:rgba(192,57,43,.8);margin-bottom:16px;font-weight:500}
+.cta-title{font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:900;line-height:1.05;margin-bottom:14px}
+.cta-title em{font-style:italic;font-weight:300;color:var(--muted)}
+.cta-sub{font-size:14.5px;color:var(--muted);max-width:460px;margin:0 auto 36px;line-height:1.75;font-weight:300}
+.cta-btns{display:flex;justify-content:center;gap:12px}
+.btn-red{background:var(--red);color:white;border:none;padding:14px 32px;border-radius:8px;font-family:var(--sans);font-size:13.5px;font-weight:500;cursor:pointer;transition:all .25s}
+.btn-red:hover{background:#a93226;transform:translateY(-2px)}
+.btn-ghost{background:none;color:var(--text);border:1px solid rgba(255,255,255,.2);padding:14px 32px;border-radius:8px;font-family:var(--sans);font-size:13.5px;font-weight:500;cursor:pointer;transition:all .25s}
+.btn-ghost:hover{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.04)}
+
+footer{
+  border-top:1px solid var(--border);padding:32px 56px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-logo{font-family:var(--serif);font-size:16px;font-weight:900;display:flex;align-items:center;gap:7px}
+.footer-copy{font-size:11.5px;color:var(--muted)}
+.footer-links{display:flex;gap:20px}
+.footer-link{font-size:12px;color:var(--muted);cursor:pointer;transition:color .2s;border:none;background:none;font-family:var(--sans)}
+.footer-link:hover{color:var(--red2)}
+
+/* icon SVGs inline helpers */
+
+.photo-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
+}
+.card:hover .photo-bg, .esp-card:hover .photo-bg, .lg-card:hover .photo-bg {
+    transform: scale(1.05);
+}
+
+svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;vertical-align:middle}
+
+/* ══════════════════════════════════
+   RESPONSIVE — MOBILE FIRST
+══════════════════════════════════ */
+
+/* Tablet ≤ 1024px */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { height: 360px; }
+  .hero-left { padding: 72px 40px 48px; }
+  .cards-row { grid-template-columns: 1fr 1fr; }
+  .listing-grid { grid-template-columns: repeat(3, 1fr); }
+  .esp-layout { grid-template-columns: 200px 1fr; }
+  .map-sidebar { display: none; }
+  .avis-grid { grid-template-columns: 1fr 1fr; }
+  .cta-band { padding: 56px 48px; }
+}
+
+/* Mobile ≤ 768px */
+@media (max-width: 768px) {
+  /* Nav */
+  nav { padding: 0 20px; height: 60px; }
+  .nav-links { gap: 0; }
+  .nav-link { display: none; }
+  .nav-cta { padding: 8px 16px; font-size: 12px; }
+
+  /* Hero */
+  #home { padding-top: 60px; }
+  #espaces { padding-top: 60px; }
+  #listing { padding-top: 60px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 48px 20px 36px; border-right: none; border-bottom: 1px solid var(--border); }
+  .hero-right { height: 280px; }
+  .hg-bot { grid-template-columns: 1fr 1fr; }
+  h1.hero-title { font-size: 2.6rem; }
+  .hero-desc { font-size: 14px; margin-bottom: 28px; }
+  .search-hero { max-width: 100%; }
+  .search-hero input { font-size: 13px; }
+  .hero-stats { gap: 20px; flex-wrap: wrap; }
+  .stat-n { font-size: 1.6rem; }
+  .hero-float { bottom: 12px; left: 12px; padding: 10px 14px; }
+  .hf-val { font-size: 1.1rem; }
+
+  /* Sections */
+  .section { padding: 56px 20px; }
+  .avantages { padding: 0 20px 56px; }
+  .video-sec { padding: 0 20px 56px; }
+  .sec-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+  h2.sec-title { font-size: 1.9rem; }
+
+  /* Cards home */
+  .cards-row { grid-template-columns: 1fr; gap: 14px; }
+
+  /* Video */
+  .video-foot { flex-direction: column; align-items: flex-start; gap: 16px; padding: 36px 24px 24px; }
+  .vf-title { font-size: 1.3rem; }
+
+  /* Avantages */
+  .av-grid { grid-template-columns: 1fr; }
+
+  /* Footer */
+  footer { flex-direction: column; gap: 16px; padding: 28px 20px; text-align: center; }
+  .footer-links { justify-content: center; flex-wrap: wrap; }
+
+  /* Page 2 — Espaces */
+  .esp-hero { padding: 32px 20px 24px; }
+  .esp-hero h1 { font-size: 2rem; }
+  .esp-layout { grid-template-columns: 1fr; }
+  .filters-sidebar { position: static; height: auto; padding: 20px; border-right: none; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .filter-head { grid-column: 1 / -1; }
+  .filter-apply { grid-column: 1 / -1; }
+  .filter-reset { grid-column: 1 / -1; }
+  .esp-main { max-height: none; padding: 20px; }
+  .esp-cards { grid-template-columns: 1fr; }
+  .esp-toolbar { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+  /* Page 3 — Listing */
+  .listing-hero { padding: 32px 20px 24px; }
+  .listing-hero h1 { font-size: 2rem; }
+  .listing-body { padding: 24px 20px; }
+  .listing-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .listing-toolbar { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .listing-filters { gap: 6px; }
+  .avis-sec { padding: 48px 20px; margin: 0 -20px; }
+  .avis-grid { grid-template-columns: 1fr; }
+  .cta-band { margin: 0 20px 56px; padding: 44px 24px; }
+  .cta-title { font-size: 2rem; }
+  .cta-btns { flex-direction: column; align-items: center; }
+}
+
+/* Small mobile ≤ 480px */
+@media (max-width: 480px) {
+  h1.hero-title { font-size: 2rem; }
+  .listing-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 16px; }
+  .search-hero { flex-wrap: wrap; gap: 8px; padding: 10px 14px; }
+  .search-btn { width: 100%; text-align: center; justify-content: center; border-radius: 7px; }
+  .hg-bot { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">
+    <div class="nav-logo-dot"></div>
+    Space<span style="color:var(--red2)">Rental</span>
+  </div>
+  <div class="nav-links">
+    <button class="nav-link active-link" onclick="showPage('home')">Accueil</button>
+    <button class="nav-link" onclick="showPage('espaces')">Espaces</button>
+    <button class="nav-link" onclick="showPage('listing')">Listing</button>
+    <button class="nav-cta" onclick="document.getElementById('modal').style.display='flex'">Connexion</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════
+     PAGE 1 — HOME
+══════════════════════════════════ -->
+<div id="home" class="page active">
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <div class="hero-tag-pulse"></div>
+        200+ espaces disponibles
+      </div>
+      <h1 class="hero-title">
+        Trouvez<br>
+        <span class="italic">l'espace</span><br>
+        <span class="thin">qu'il vous faut.</span>
+      </h1>
+      <p class="hero-desc">Bureaux, salles de réunion et espaces événementiels à louer partout au Maroc. Réservation simple, confirmation instantanée.</p>
+      <div class="search-hero">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Ville, type d'espace, capacité…">
+        <button class="search-btn">Rechercher</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-n">200<sup>+</sup></div><div class="stat-l">Espaces</div></div>
+        <div><div class="stat-n">15</div><div class="stat-l">Villes</div></div>
+        <div><div class="stat-n">5k<sup>+</sup></div><div class="stat-l">Réservations</div></div>
+        <div><div class="stat-n">4.9<sup>★</sup></div><div class="stat-l">Note</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-grid">
+        <div class="hg-main">
+          <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80');background-size:cover;background-position:center;"></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,18,16,0.3),rgba(20,18,16,0.6))"></div>
+          <div class="hero-float">
+            <div class="hf-label">Réservations aujourd'hui</div>
+            <div class="hf-val">+18 espaces</div>
+            <div class="hf-sub">Casablanca · Rabat · Marrakech</div>
+          </div>
+        </div>
+        <div class="hg-bot">
+          <div class="hg-card" style="background:linear-gradient(135deg,#180d14,#1a0d0d);background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80');background-size:cover;background-position:center;position:relative;">
+            <div style="position:absolute;inset:0;background:rgba(14,12,10,0.65)"></div><div class="hg-card-tag tag-red">Salle de réunion</div>
+            <div class="hg-card-label">Le Hub Maarif</div>
+            <div class="hg-card-val">350 MAD</div>
+            <div class="hg-card-sub">/ heure · 15 pers.</div>
+          </div>
+          <div class="hg-card" style="background:linear-gradient(135deg,#0e1a14,#0a1414);background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80');background-size:cover;background-position:center;position:relative;">
+            <div style="position:absolute;inset:0;background:rgba(10,14,14,0.65)"></div><div class="hg-card-tag tag-teal">Espace événementiel</div>
+            <div class="hg-card-label">Grand Hall Guéliz</div>
+            <div class="hg-card-val">1 200 MAD</div>
+            <div class="hg-card-sub">/ jour · 500 pers.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular spaces -->
+  <div class="section">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eye">À la une</div>
+        <h2 class="sec-title">Les espaces <em>populaires</em></h2>
+      </div>
+      <button class="see-all" onclick="showPage('listing')">Voir tous les espaces →</button>
+    </div>
+    <div class="cards-row">
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="card-vis">
+          <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80')"></div>
+          <div class="card-voverlay"></div>
+          <div class="cbadge cbadge-red">⭐ Top</div>
+          <div class="ccap">
+            <svg class="icon" style="width:10px;height:10px" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            1–15 pers.
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-type">Bureau privé</div>
+          <div class="card-name">Le Hub Casablanca</div>
+          <div class="card-loc">
+            <svg class="icon" style="width:11px;height:11px" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Casablanca, Maarif
+          </div>
+          <div class="card-foot">
+            <div class="card-price">350 MAD <small>/ heure</small></div>
+            <button class="card-res">Réserver</button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="card-vis">
+          <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80')"></div>
+          <div class="card-voverlay"></div>
+          <div class="cbadge cbadge-warm">Nouveau</div>
+          <div class="ccap">2–20 pers.</div>
+        </div>
+        <div class="card-body">
+          <div class="card-type">Salle de réunion</div>
+          <div class="card-name">Espace Conf Rabat</div>
+          <div class="card-loc">
+            <svg class="icon" style="width:11px;height:11px" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Rabat, Hassan
+          </div>
+          <div class="card-foot">
+            <div class="card-price">200 MAD <small>/ heure</small></div>
+            <button class="card-res">Réserver</button>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="card">
+        <div class="card-vis">
+          <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80')"></div>
+          <div class="card-voverlay"></div>
+          <div class="cbadge cbadge-glass">Premium</div>
+          <div class="ccap">50–500 pers.</div>
+        </div>
+        <div class="card-body">
+          <div class="card-type">Espace événementiel</div>
+          <div class="card-name">Grand Hall Marrakech</div>
+          <div class="card-loc">
+            <svg class="icon" style="width:11px;height:11px" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Marrakech, Guéliz
+          </div>
+          <div class="card-foot">
+            <div class="card-price">1 200 MAD <small>/ jour</small></div>
+            <button class="card-res">Réserver</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video -->
+  <div class="video-sec">
+    <div class="video-wrap">
+      <video src="vd_prj2.mp4" controls autoplay muted loop playsinline></video>
+      <div class="video-foot">
+        <div>
+          <div class="vf-eye">Visite virtuelle</div>
+          <div class="vf-title">Découvrez nos espaces</div>
+        </div>
+        <button class="vf-btn">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Voir la vidéo
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Avantages -->
+  <div class="avantages">
+    <div class="sec-eye">Pourquoi nous</div>
+    <h2>Avantages <em>du service</em></h2>
+    <div class="av-grid">
+      <div class="av-item">
+        <div class="av-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div class="av-title">Réservation instantanée</div>
+        <p class="av-desc">Confirmez votre espace en moins de 2 minutes. Aucune attente, aucune validation manuelle requise.</p>
+      </div>
+      <div class="av-item">
+        <div class="av-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="av-title">Paiement sécurisé</div>
+        <p class="av-desc">Transactions 100% sécurisées. Remboursement garanti en cas d'annulation selon nos conditions.</p>
+      </div>
+      <div class="av-item">
+        <div class="av-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="av-title">Disponible 24h/24</div>
+        <p class="av-desc">Recherchez et réservez à toute heure. Notre plateforme ne ferme jamais, notre support est toujours là.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo"><div class="nav-logo-dot"></div>Space<span style="color:var(--red2)">Rental</span></div>
+    <div class="footer-links">
+      <button class="footer-link">À propos</button>
+      <button class="footer-link">Contact</button>
+      <button class="footer-link">Conditions</button>
+    </div>
+    <div class="footer-copy">© 2025 Space Rental Maroc</div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE 2 — ESPACES
+══════════════════════════════════ -->
+<div id="espaces" class="page">
+  <div class="esp-hero">
+    <div class="esp-hero-top">
+      <div>
+        <h1>Tous les <em>espaces</em></h1>
+        <div class="esp-count"><strong>187 espaces</strong> disponibles au Maroc</div>
+      </div>
+    </div>
+    <div class="search-esp">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(240,235,226,0.4)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Recherchez par ville, type, capacité…">
+      <button class="search-btn" style="border-radius:6px;padding:10px 20px">Rechercher</button>
+    </div>
+  </div>
+
+  <div class="esp-layout">
+    <!-- Sidebar filtres -->
+    <aside class="filters-sidebar">
+      <div class="filter-head">
+        <svg class="icon" style="width:13px;height:13px;margin-right:6px" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        Filtres
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Ville</div>
+        <select class="filter-select">
+          <option>Toutes les villes</option>
+          <option>Casablanca</option>
+          <option>Rabat</option>
+          <option>Marrakech</option>
+          <option>Tanger</option>
+          <option>Agadir</option>
+          <option>Fès</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Type d'espace</div>
+        <select class="filter-select">
+          <option>Tous les types</option>
+          <option>Bureau privé</option>
+          <option>Salle de réunion</option>
+          <option>Espace événementiel</option>
+          <option>Coworking</option>
+          <option>Studio</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Prix max (MAD/h)</div>
+        <input type="range" class="filter-range" min="50" max="2000" value="800" id="priceRange" oninput="document.getElementById('priceVal').textContent=this.value+' MAD'">
+        <div class="filter-val" id="priceVal">800 MAD</div>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Équipements</div>
+        <div class="filter-checks">
+          <label class="filter-check"><input type="checkbox" checked> WiFi haut débit</label>
+          <label class="filter-check"><input type="checkbox"> Climatisation</label>
+          <label class="filter-check"><input type="checkbox" checked> Projecteur</label>
+          <label class="filter-check"><input type="checkbox"> Parking</label>
+          <label class="filter-check"><input type="checkbox"> Cuisine</label>
+          <label class="filter-check"><input type="checkbox"> Tableau blanc</label>
+        </div>
+      </div>
+      <button class="filter-apply">Appliquer les filtres</button>
+      <button class="filter-reset">Réinitialiser</button>
+    </aside>
+
+    <!-- Espaces -->
+    <div class="esp-main">
+      <div class="esp-toolbar">
+        <div class="esp-sort">
+          <button class="sort-btn active-sort">Populaire</button>
+          <button class="sort-btn">Prix ↑</button>
+          <button class="sort-btn">Prix ↓</button>
+          <button class="sort-btn">Récents</button>
+        </div>
+        <div class="esp-view">
+          <button class="view-btn active-view">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </button>
+          <button class="view-btn">
+            <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="esp-cards">
+        <!-- 6 cards -->
+        <div class="esp-card">
+          <div class="esp-card-img">
+            <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80')"></div>
+          </div>
+          <div class="esp-card-body">
+            <div class="esp-card-type">Bureau privé</div>
+            <div class="esp-card-name">Le Hub Casablanca</div>
+            <div class="esp-card-loc">Casablanca, Maarif</div>
+            <div class="esp-card-foot">
+              <div class="esp-card-price">350 MAD <small>/h</small></div>
+              <button class="esp-card-btn">Réserver</button>
+            </div>
+          </div>
+        </div>
+        <div class="esp-card">
+          <div class="esp-card-img">
+            <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80')"></div>
+          </div>
+          <div class="esp-card-body">
+            <div class="esp-card-type">Salle de réunion</div>
+            <div class="esp-card-name">Espace Conf Rabat</div>
+            <div class="esp-card-loc">Rabat, Hassan</div>
+            <div class="esp-card-foot">
+              <div class="esp-card-price">200 MAD <small>/h</small></div>
+              <button class="esp-card-btn">Réserver</button>
+            </div>
+          </div>
+        </div>
+        <div class="esp-card">
+          <div class="esp-card-img">
+            <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80')"></div>
+          </div>
+          <div class="esp-card-body">
+            <div class="esp-card-type">Événementiel</div>
+            <div class="esp-card-name">Grand Hall Marrakech</div>
+            <div class="esp-card-loc">Marrakech, Guéliz</div>
+            <div class="esp-card-foot">
+              <div class="esp-card-price">1 200 MAD <small>/j</small></div>
+              <button class="esp-card-btn">Réserver</button>
+            </div>
+          </div>
+        </div>
+        <div class="esp-card">
+          <div class="esp-card-img">
+            <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80')"></div>
+          </div>
+          <div class="esp-card-body">
+            <div class="esp-card-type">Coworking</div>
+            <div class="esp-card-name">WorkHub Tanger</div>
+            <div class="esp-card-loc">Tanger, Médina</div>
+            <div class="esp-card-foot">
+              <div class="esp-card-price">150 MAD <small>/h</small></div>
+              <button class="esp-card-btn">Réserver</button>
+            </div>
+          </div>
+        </div>
+        <div class="esp-card">
+          <div class="esp-card-img">
+            <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1554080353-a576cf803bda?w=800&q=80')"></div>
+          </div>
+          <div class="esp-card-body">
+            <div class="esp-card-type">Studio</div>
+            <div class="esp-card-name">Studio Photo Agadir</div>
+            <div class="esp-card-loc">Agadir, Nouveau Talborjt</div>
+            <div class="esp-card-foot">
+              <div class="esp-card-price">450 MAD <small>/h</small></div>
+              <button class="esp-card-btn">Réserver</button>
+            </div>
+          </div>
+        </div>
+        <div class="esp-card">
+          <div class="esp-card-img">
+            <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80')"></div>
+          </div>
+          <div class="esp-card-body">
+            <div class="esp-card-type">Salle de formation</div>
+            <div class="esp-card-name">Centre Forma Fès</div>
+            <div class="esp-card-loc">Fès, Ville Nouvelle</div>
+            <div class="esp-card-foot">
+              <div class="esp-card-price">280 MAD <small>/h</small></div>
+              <button class="esp-card-btn">Réserver</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map sidebar -->
+    <div class="map-sidebar">
+      <div class="map-head">
+        <div class="map-head-title">Carte interactive</div>
+        <div class="map-head-sub">Espaces disponibles près de vous</div>
+      </div>
+      <div class="map-area">
+        <svg viewBox="0 0 300 280" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+          <rect width="300" height="280" fill="#0e1014"/>
+          <!-- Grid lines -->
+          <line x1="0" y1="56" x2="300" y2="56" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="112" x2="300" y2="112" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="168" x2="300" y2="168" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="0" y1="224" x2="300" y2="224" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="60" y1="0" x2="60" y2="280" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="120" y1="0" x2="120" y2="280" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="180" y1="0" x2="180" y2="280" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <line x1="240" y1="0" x2="240" y2="280" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+          <!-- Roads -->
+          <path d="M0,140 Q80,130 150,140 Q220,150 300,140" stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="none"/>
+          <path d="M150,0 Q140,80 150,140 Q160,200 150,280" stroke="rgba(255,255,255,0.08)" stroke-width="4" fill="none"/>
+          <path d="M0,200 Q60,195 120,200 Q180,205 240,195 Q270,192 300,195" stroke="rgba(255,255,255,0.05)" stroke-width="2" fill="none"/>
+          <path d="M0,80 Q60,75 100,80 Q140,85 180,78 Q220,72 300,76" stroke="rgba(255,255,255,0.05)" stroke-width="2" fill="none"/>
+          <!-- City blocks -->
+          <rect x="10" y="10" width="35" height="25" rx="2" fill="rgba(255,255,255,0.04)"/>
+          <rect x="52" y="10" width="55" height="40" rx="2" fill="rgba(255,255,255,0.04)"/>
+          <rect x="10" y="42" width="35" height="20" rx="2" fill="rgba(255,255,255,0.03)"/>
+          <rect x="168" y="10" width="45" height="30" rx="2" fill="rgba(255,255,255,0.04)"/>
+          <rect x="220" y="10" width="70" height="55" rx="2" fill="rgba(255,255,255,0.04)"/>
+          <rect x="10" y="155" width="50" height="35" rx="2" fill="rgba(255,255,255,0.04)"/>
+          <rect x="67" y="155" width="40" height="35" rx="2" fill="rgba(255,255,255,0.03)"/>
+          <rect x="168" y="155" width="55" height="40" rx="2" fill="rgba(255,255,255,0.04)"/>
+          <rect x="230" y="155" width="60" height="32" rx="2" fill="rgba(255,255,255,0.04)"/>
+          <rect x="10" y="230" width="70" height="40" rx="2" fill="rgba(255,255,255,0.03)"/>
+          <rect x="200" y="230" width="90" height="40" rx="2" fill="rgba(255,255,255,0.04)"/>
+          <!-- Pins -->
+          <g class="map-pin" transform="translate(120,110)">
+            <circle r="10" fill="rgba(192,57,43,0.3)"/>
+            <circle r="6" fill="var(--red)"/>
+            <circle r="3" fill="white"/>
+          </g>
+          <g class="map-pin" transform="translate(175,155)">
+            <circle r="8" fill="rgba(192,57,43,0.25)"/>
+            <circle r="5" fill="var(--red)"/>
+            <circle r="2.5" fill="white"/>
+          </g>
+          <g class="map-pin" transform="translate(80,170)">
+            <circle r="8" fill="rgba(192,57,43,0.25)"/>
+            <circle r="5" fill="rgba(192,57,43,0.85)"/>
+            <circle r="2.5" fill="white"/>
+          </g>
+          <g class="map-pin" transform="translate(220,80)">
+            <circle r="8" fill="rgba(212,134,10,0.25)"/>
+            <circle r="5" fill="#d4860a"/>
+            <circle r="2.5" fill="white"/>
+          </g>
+          <g class="map-pin" transform="translate(48,100)">
+            <circle r="8" fill="rgba(192,57,43,0.2)"/>
+            <circle r="5" fill="rgba(192,57,43,0.75)"/>
+            <circle r="2.5" fill="white"/>
+          </g>
+        </svg>
+      </div>
+      <div class="map-legend">
+        <div class="map-legend-title">Espaces proches</div>
+        <div class="map-items">
+          <div class="map-item"><span class="map-item-name">Le Hub Maarif</span><span class="map-item-price">350 MAD</span></div>
+          <div class="map-item"><span class="map-item-name">Studio Guéliz</span><span class="map-item-price">450 MAD</span></div>
+          <div class="map-item"><span class="map-item-name">Conf Hassan II</span><span class="map-item-price">200 MAD</span></div>
+        </div>
+      </div>
+      <button class="map-cta">Voir sur la carte complète</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE 3 — LISTING
+══════════════════════════════════ -->
+<div id="listing" class="page">
+  <div class="listing-hero">
+    <div class="listing-hero-top">
+      <div>
+        <h1>Nos <em>espaces</em></h1>
+        <div class="listing-count">Affichage de <strong>187 espaces</strong> disponibles</div>
+      </div>
+    </div>
+    <div class="listing-search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(240,235,226,0.4)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Nom, ville, type…">
+      <button class="search-btn" style="border-radius:6px;padding:10px 20px">Chercher</button>
+    </div>
+  </div>
+
+  <div class="listing-body">
+    <div class="listing-toolbar">
+      <div class="listing-filters">
+        <button class="lf-pill lf-active">Tous</button>
+        <button class="lf-pill">Bureau</button>
+        <button class="lf-pill">Réunion</button>
+        <button class="lf-pill">Événementiel</button>
+        <button class="lf-pill">Coworking</button>
+        <button class="lf-pill">Studio</button>
+      </div>
+      <div class="listing-sort">
+        <span>Trier par</span>
+        <select>
+          <option>Popularité</option>
+          <option>Prix croissant</option>
+          <option>Prix décroissant</option>
+          <option>Nouveautés</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="listing-grid">
+      <!-- 8 cards -->
+      <div class="lg-card">
+        <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge cbadge-red" style="background:var(--red);color:white">Top</div></div>
+        <div class="lg-body"><div class="lg-type">Bureau privé</div><div class="lg-name">Le Hub Casablanca</div><div class="lg-addr">Casablanca, Maarif</div><div class="lg-details">Type: Bureau · Équip: WiFi, Clim<br>Disponibilité: Lun–Sam 8h–20h</div><div class="lg-foot"><div class="lg-price">350 MAD <small>/h</small></div><button class="lg-btn">Réserver</button></div></div>
+      </div>
+      <div class="lg-card">
+        <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge" style="background:rgba(212,134,10,0.25);color:#e8a84a;border:1px solid rgba(212,134,10,0.3)">Nouveau</div></div>
+        <div class="lg-body"><div class="lg-type">Salle de réunion</div><div class="lg-name">Espace Conf Rabat</div><div class="lg-addr">Rabat, Hassan</div><div class="lg-details">Type: Réunion · Équip: Projecteur<br>Capacité: 2–20 pers. · Dispo 7j/7</div><div class="lg-foot"><div class="lg-price">200 MAD <small>/h</small></div><button class="lg-btn">Réserver</button></div></div>
+      </div>
+      <div class="lg-card">
+        <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge cbadge-glass">Premium</div></div>
+        <div class="lg-body"><div class="lg-type">Événementiel</div><div class="lg-name">Grand Hall Marrakech</div><div class="lg-addr">Marrakech, Guéliz</div><div class="lg-details">Type: Événement · Scène incluse<br>Capacité: 50–500 pers.</div><div class="lg-foot"><div class="lg-price">1 200 MAD <small>/j</small></div><button class="lg-btn">Réserver</button></div></div>
+      </div>
+      <div class="lg-card">
+        <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge" style="background:rgba(40,160,100,0.2);color:#5ab89a;border:1px solid rgba(40,160,100,0.3)">Cowork</div></div>
+        <div class="lg-body"><div class="lg-type">Coworking</div><div class="lg-name">WorkHub Tanger</div><div class="lg-addr">Tanger, Médina</div><div class="lg-details">Type: Open space · WiFi fibre<br>Capacité: 1–50 pers.</div><div class="lg-foot"><div class="lg-price">150 MAD <small>/h</small></div><button class="lg-btn">Réserver</button></div></div>
+      </div>
+      <div class="lg-card">
+        <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1554080353-a576cf803bda?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge cbadge-red">Studio</div></div>
+        <div class="lg-body"><div class="lg-type">Studio photo/vidéo</div><div class="lg-name">Studio Photo Agadir</div><div class="lg-addr">Agadir, Nouveau Talborjt</div><div class="lg-details">Fond amovible · Éclairage pro<br>Capacité: 1–10 pers.</div><div class="lg-foot"><div class="lg-price">450 MAD <small>/h</small></div><button class="lg-btn">Réserver</button></div></div>
+      </div>
+      <div class="lg-card">
+        <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge" style="background:rgba(100,80,200,0.2);color:#a090e0;border:1px solid rgba(100,80,200,0.3)">Formation</div></div>
+        <div class="lg-body"><div class="lg-type">Salle de formation</div><div class="lg-name">Centre Forma Fès</div><div class="lg-addr">Fès, Ville Nouvelle</div><div class="lg-details">Tableau smart · 30 places<br>Dispo: Lun–Ven 8h–18h</div><div class="lg-foot"><div class="lg-price">280 MAD <small>/h</small></div><button class="lg-btn">Réserver</button></div></div>
+      </div>
+      <div class="lg-card">
+        <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge cbadge-warm">Nouveau</div></div>
+        <div class="lg-body"><div class="lg-type">Bureau partagé</div><div class="lg-name">Open Space Meknès</div><div class="lg-addr">Meknès, Centre-ville</div><div class="lg-details">Espaces flex · Café inclus<br>Capacité: 5–25 pers.</div><div class="lg-foot"><div class="lg-price">180 MAD <small>/h</small></div><button class="lg-btn">Réserver</button></div></div>
+      </div>
+      <div class="lg-card">
+        <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge" style="background:rgba(26,140,180,0.2);color:#52c0e0;border:1px solid rgba(26,140,180,0.3)">Premium</div></div>
+        <div class="lg-body"><div class="lg-type">Salle de conférence</div><div class="lg-name">Atlantic Conf Tanger</div><div class="lg-addr">Tanger, Zone Franche</div><div class="lg-details">Écran 4K · Visioconf HD<br>Capacité: 10–80 pers.</div><div class="lg-foot"><div class="lg-price">650 MAD <small>/h</small></div><button class="lg-btn">Réserver</button></div></div>
+      </div>
+    </div>
+
+    <!-- Avis clients -->
+    <div class="avis-sec" style="margin:0 -56px;padding:64px 56px">
+      <div class="sec-eye">Témoignages</div>
+      <h2 class="sec-title" style="font-family:var(--serif);font-size:2.4rem;font-weight:900">Avis <em>des clients</em></h2>
+      <div class="avis-grid">
+        <div class="avis-card">
+          <div class="avis-stars">★★★★★</div>
+          <p class="avis-text">Réservation ultra simple, l'espace était parfait pour notre séminaire. Je recommande vivement Space Rental pour tous vos événements professionnels.</p>
+          <div class="avis-author">
+            <div class="avis-avatar" style="background:rgba(192,57,43,0.15)">KA</div>
+            <div><div class="avis-name">Karim Alaoui</div><div class="avis-sub">Directeur commercial, Casablanca</div></div>
+          </div>
+        </div>
+        <div class="avis-card">
+          <div class="avis-stars">★★★★★</div>
+          <p class="avis-text">J'utilise Space Rental chaque semaine pour mes réunions clients. La qualité des espaces est constante et le service client réactif.</p>
+          <div class="avis-author">
+            <div class="avis-avatar" style="background:rgba(40,120,80,0.15)">SB</div>
+            <div><div class="avis-name">Sara Benali</div><div class="avis-sub">Consultante RH, Rabat</div></div>
+          </div>
+        </div>
+        <div class="avis-card">
+          <div class="avis-stars">★★★★☆</div>
+          <p class="avis-text">Excellent rapport qualité-prix. L'espace événementiel de Marrakech était magnifique pour notre lancement de produit. Merci !</p>
+          <div class="avis-author">
+            <div class="avis-avatar" style="background:rgba(212,134,10,0.15)">YM</div>
+            <div><div class="avis-name">Youssef Mouhcine</div><div class="avis-sub">Entrepreneur, Marrakech</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="cta-eye">Rejoignez-nous</div>
+    <h2 class="cta-title">Prêt à trouver<br><em>votre espace idéal ?</em></h2>
+    <p class="cta-sub">Des milliers de professionnels nous font déjà confiance. Inscription gratuite, réservation en 2 minutes.</p>
+    <div class="cta-btns">
+      <button class="btn-red">Créer un compte gratuit</button>
+      <button class="btn-ghost">Explorer les espaces →</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo"><div class="nav-logo-dot"></div>Space<span style="color:var(--red2)">Rental</span></div>
+    <div class="footer-links">
+      <button class="footer-link">À propos</button>
+      <button class="footer-link">Contact</button>
+      <button class="footer-link">Conditions</button>
+    </div>
+    <div class="footer-copy">© 2025 Space Rental Maroc</div>
+  </footer>
+</div>
+
+<script>
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active-link'));
+  const map={home:0,espaces:1,listing:2};
+  document.querySelectorAll('.nav-link')[map[id]].classList.add('active-link');
+  window.scrollTo(0,0);
+}
+// Sort btn toggle
+document.querySelectorAll('.sort-btn').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    this.closest('.esp-sort').querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active-sort'));
+    this.classList.add('active-sort');
+  });
+});
+// Filter pills
+document.querySelectorAll('.lf-pill').forEach(pill=>{
+  pill.addEventListener('click',function(){
+    document.querySelectorAll('.lf-pill').forEach(p=>p.classList.remove('lf-active'));
+    this.classList.add('lf-active');
+  });
+});
+</script>
+
+<!-- ══ LOGIN MODAL ══ -->
+<div id="modal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:var(--dark2);border:1px solid var(--border2);border-radius:18px;padding:44px 40px;width:min(420px,90vw);position:relative;">
+    
+    <!-- Close -->
+    <button onclick="document.getElementById('modal').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:20px;line-height:1;padding:4px 8px;">✕</button>
+
+    <!-- Logo -->
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:28px;">
+      <div style="width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red);"></div>
+      <span style="font-family:var(--serif);font-size:18px;font-weight:900;">Space<span style="color:var(--red2)">Rental</span></span>
+    </div>
+
+    <h2 style="font-family:var(--serif);font-size:1.9rem;font-weight:900;margin-bottom:6px;line-height:1.1;">Bon retour <em style="font-weight:300;color:var(--muted)">parmi nous</em></h2>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:32px;font-weight:300;">Connectez-vous pour accéder à vos réservations.</p>
+
+    <!-- Fields -->
+    <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px;">
+      <div>
+        <label style="font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:7px;">Email</label>
+        <input type="email" placeholder="vous@exemple.com" style="width:100%;background:var(--dark3);border:1px solid var(--border2);color:var(--text);font-family:var(--sans);font-size:14px;padding:12px 16px;border-radius:8px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='rgba(192,57,43,.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.14)'">
+      </div>
+      <div>
+        <label style="font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:7px;">Mot de passe</label>
+        <input type="password" placeholder="••••••••" style="width:100%;background:var(--dark3);border:1px solid var(--border2);color:var(--text);font-family:var(--sans);font-size:14px;padding:12px 16px;border-radius:8px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='rgba(192,57,43,.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.14)'">
+      </div>
+    </div>
+
+    <div style="text-align:right;margin-bottom:24px;">
+      <span style="font-size:12.5px;color:var(--red2);cursor:pointer;">Mot de passe oublié ?</span>
+    </div>
+
+    <button style="width:100%;background:var(--red);color:white;border:none;padding:14px;border-radius:8px;font-family:var(--sans);font-size:14px;font-weight:500;cursor:pointer;transition:background .2s;margin-bottom:16px;" onmouseover="this.style.background='#a93226'" onmouseout="this.style.background='var(--red)'">
+      Se connecter
+    </button>
+
+    <p style="text-align:center;font-size:13px;color:var(--muted);">
+      Pas encore de compte ? <span style="color:var(--red2);cursor:pointer;font-weight:500;">S'inscrire gratuitement</span>
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
