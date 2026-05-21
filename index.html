@@ -671,7 +671,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
       <div class="search-hero">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <input type="text" placeholder="Ville, type d'espace, capacité…">
-        <button class="search-btn">Rechercher</button>
+        <button class="search-btn" onclick="openSearch()">Rechercher</button>
       </div>
       <div class="hero-stats">
         <div><div class="stat-n">200<sup>+</sup></div><div class="stat-l">Espaces</div></div>
@@ -739,7 +739,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
           </div>
           <div class="card-foot">
             <div class="card-price">350 MAD <small>/ heure</small></div>
-            <button class="card-res">Réserver</button>
+            <button class="card-res" onclick="openReserver('hub-casa')">Réserver</button>
           </div>
         </div>
       </div>
@@ -760,7 +760,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
           </div>
           <div class="card-foot">
             <div class="card-price">200 MAD <small>/ heure</small></div>
-            <button class="card-res">Réserver</button>
+            <button class="card-res" onclick="openReserver('conf-rabat')">Réserver</button>
           </div>
         </div>
       </div>
@@ -781,7 +781,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
           </div>
           <div class="card-foot">
             <div class="card-price">1 200 MAD <small>/ jour</small></div>
-            <button class="card-res">Réserver</button>
+            <button class="card-res" onclick="openReserver('hall-marrakech')">Réserver</button>
           </div>
         </div>
       </div>
@@ -791,13 +791,13 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
   <!-- Video -->
   <div class="video-sec">
     <div class="video-wrap">
-      <video src="vd_prj2.mp4" controls autoplay muted loop playsinline></video>
+      <video src="vd.prj2.mp4" autoplay muted loop playsinline style="cursor:pointer;" onclick="openVideo()"></video>
       <div class="video-foot">
         <div>
           <div class="vf-eye">Visite virtuelle</div>
           <div class="vf-title">Découvrez nos espaces</div>
         </div>
-        <button class="vf-btn">
+        <button class="vf-btn" onclick="openVideo()">
           <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
           Voir la vidéo
         </button>
@@ -832,9 +832,9 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
   <footer>
     <div class="footer-logo"><div class="nav-logo-dot"></div>Space<span style="color:var(--red2)">Rental</span></div>
     <div class="footer-links">
-      <button class="footer-link">À propos</button>
-      <button class="footer-link">Contact</button>
-      <button class="footer-link">Conditions</button>
+      <button class="footer-link" onclick="openPage('apropos')">À propos</button>
+      <button class="footer-link" onclick="openPage('contact')">Contact</button>
+      <button class="footer-link" onclick="openPage('conditions')">Conditions</button>
     </div>
     <div class="footer-copy">© 2025 Space Rental Maroc</div>
   </footer>
@@ -854,7 +854,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
     <div class="search-esp">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(240,235,226,0.4)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       <input type="text" placeholder="Recherchez par ville, type, capacité…">
-      <button class="search-btn" style="border-radius:6px;padding:10px 20px">Rechercher</button>
+      <button class="search-btn" style="border-radius:6px;padding:10px 20px" onclick="openSearch()">Rechercher</button>
     </div>
   </div>
 
@@ -938,7 +938,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
             <div class="esp-card-loc">Casablanca, Maarif</div>
             <div class="esp-card-foot">
               <div class="esp-card-price">350 MAD <small>/h</small></div>
-              <button class="esp-card-btn">Réserver</button>
+              <button class="esp-card-btn" onclick="openReserver('hub-casa')">Réserver</button>
             </div>
           </div>
         </div>
@@ -952,7 +952,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
             <div class="esp-card-loc">Rabat, Hassan</div>
             <div class="esp-card-foot">
               <div class="esp-card-price">200 MAD <small>/h</small></div>
-              <button class="esp-card-btn">Réserver</button>
+              <button class="esp-card-btn" onclick="openReserver('conf-rabat')">Réserver</button>
             </div>
           </div>
         </div>
@@ -966,7 +966,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
             <div class="esp-card-loc">Marrakech, Guéliz</div>
             <div class="esp-card-foot">
               <div class="esp-card-price">1 200 MAD <small>/j</small></div>
-              <button class="esp-card-btn">Réserver</button>
+              <button class="esp-card-btn" onclick="openReserver('hall-marrakech')">Réserver</button>
             </div>
           </div>
         </div>
@@ -980,7 +980,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
             <div class="esp-card-loc">Tanger, Médina</div>
             <div class="esp-card-foot">
               <div class="esp-card-price">150 MAD <small>/h</small></div>
-              <button class="esp-card-btn">Réserver</button>
+              <button class="esp-card-btn" onclick="openReserver('workhub-tanger')">Réserver</button>
             </div>
           </div>
         </div>
@@ -994,7 +994,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
             <div class="esp-card-loc">Agadir, Nouveau Talborjt</div>
             <div class="esp-card-foot">
               <div class="esp-card-price">450 MAD <small>/h</small></div>
-              <button class="esp-card-btn">Réserver</button>
+              <button class="esp-card-btn" onclick="openReserver('studio-agadir')">Réserver</button>
             </div>
           </div>
         </div>
@@ -1008,7 +1008,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
             <div class="esp-card-loc">Fès, Ville Nouvelle</div>
             <div class="esp-card-foot">
               <div class="esp-card-price">280 MAD <small>/h</small></div>
-              <button class="esp-card-btn">Réserver</button>
+              <button class="esp-card-btn" onclick="openReserver('forma-fes')">Réserver</button>
             </div>
           </div>
         </div>
@@ -1105,7 +1105,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
     <div class="listing-search">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(240,235,226,0.4)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       <input type="text" placeholder="Nom, ville, type…">
-      <button class="search-btn" style="border-radius:6px;padding:10px 20px">Chercher</button>
+      <button class="search-btn" style="border-radius:6px;padding:10px 20px" onclick="openSearch()">Chercher</button>
     </div>
   </div>
 
@@ -1134,35 +1134,35 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
       <!-- 8 cards -->
       <div class="lg-card">
         <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge cbadge-red" style="background:var(--red);color:white">Top</div></div>
-        <div class="lg-body"><div class="lg-type">Bureau privé</div><div class="lg-name">Le Hub Casablanca</div><div class="lg-addr">Casablanca, Maarif</div><div class="lg-details">Type: Bureau · Équip: WiFi, Clim<br>Disponibilité: Lun–Sam 8h–20h</div><div class="lg-foot"><div class="lg-price">350 MAD <small>/h</small></div><button class="lg-btn">Réserver</button></div></div>
+        <div class="lg-body"><div class="lg-type">Bureau privé</div><div class="lg-name">Le Hub Casablanca</div><div class="lg-addr">Casablanca, Maarif</div><div class="lg-details">Type: Bureau · Équip: WiFi, Clim<br>Disponibilité: Lun–Sam 8h–20h</div><div class="lg-foot"><div class="lg-price">350 MAD <small>/h</small></div><button class="lg-btn" onclick="openReserver('hub-casa')">Réserver</button></div></div>
       </div>
       <div class="lg-card">
         <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge" style="background:rgba(212,134,10,0.25);color:#e8a84a;border:1px solid rgba(212,134,10,0.3)">Nouveau</div></div>
-        <div class="lg-body"><div class="lg-type">Salle de réunion</div><div class="lg-name">Espace Conf Rabat</div><div class="lg-addr">Rabat, Hassan</div><div class="lg-details">Type: Réunion · Équip: Projecteur<br>Capacité: 2–20 pers. · Dispo 7j/7</div><div class="lg-foot"><div class="lg-price">200 MAD <small>/h</small></div><button class="lg-btn">Réserver</button></div></div>
+        <div class="lg-body"><div class="lg-type">Salle de réunion</div><div class="lg-name">Espace Conf Rabat</div><div class="lg-addr">Rabat, Hassan</div><div class="lg-details">Type: Réunion · Équip: Projecteur<br>Capacité: 2–20 pers. · Dispo 7j/7</div><div class="lg-foot"><div class="lg-price">200 MAD <small>/h</small></div><button class="lg-btn" onclick="openReserver('conf-rabat')">Réserver</button></div></div>
       </div>
       <div class="lg-card">
         <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge cbadge-glass">Premium</div></div>
-        <div class="lg-body"><div class="lg-type">Événementiel</div><div class="lg-name">Grand Hall Marrakech</div><div class="lg-addr">Marrakech, Guéliz</div><div class="lg-details">Type: Événement · Scène incluse<br>Capacité: 50–500 pers.</div><div class="lg-foot"><div class="lg-price">1 200 MAD <small>/j</small></div><button class="lg-btn">Réserver</button></div></div>
+        <div class="lg-body"><div class="lg-type">Événementiel</div><div class="lg-name">Grand Hall Marrakech</div><div class="lg-addr">Marrakech, Guéliz</div><div class="lg-details">Type: Événement · Scène incluse<br>Capacité: 50–500 pers.</div><div class="lg-foot"><div class="lg-price">1 200 MAD <small>/j</small></div><button class="lg-btn" onclick="openReserver('hall-marrakech')">Réserver</button></div></div>
       </div>
       <div class="lg-card">
         <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge" style="background:rgba(40,160,100,0.2);color:#5ab89a;border:1px solid rgba(40,160,100,0.3)">Cowork</div></div>
-        <div class="lg-body"><div class="lg-type">Coworking</div><div class="lg-name">WorkHub Tanger</div><div class="lg-addr">Tanger, Médina</div><div class="lg-details">Type: Open space · WiFi fibre<br>Capacité: 1–50 pers.</div><div class="lg-foot"><div class="lg-price">150 MAD <small>/h</small></div><button class="lg-btn">Réserver</button></div></div>
+        <div class="lg-body"><div class="lg-type">Coworking</div><div class="lg-name">WorkHub Tanger</div><div class="lg-addr">Tanger, Médina</div><div class="lg-details">Type: Open space · WiFi fibre<br>Capacité: 1–50 pers.</div><div class="lg-foot"><div class="lg-price">150 MAD <small>/h</small></div><button class="lg-btn" onclick="openReserver('workhub-tanger')">Réserver</button></div></div>
       </div>
       <div class="lg-card">
         <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1554080353-a576cf803bda?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge cbadge-red">Studio</div></div>
-        <div class="lg-body"><div class="lg-type">Studio photo/vidéo</div><div class="lg-name">Studio Photo Agadir</div><div class="lg-addr">Agadir, Nouveau Talborjt</div><div class="lg-details">Fond amovible · Éclairage pro<br>Capacité: 1–10 pers.</div><div class="lg-foot"><div class="lg-price">450 MAD <small>/h</small></div><button class="lg-btn">Réserver</button></div></div>
+        <div class="lg-body"><div class="lg-type">Studio photo/vidéo</div><div class="lg-name">Studio Photo Agadir</div><div class="lg-addr">Agadir, Nouveau Talborjt</div><div class="lg-details">Fond amovible · Éclairage pro<br>Capacité: 1–10 pers.</div><div class="lg-foot"><div class="lg-price">450 MAD <small>/h</small></div><button class="lg-btn" onclick="openReserver('studio-agadir')">Réserver</button></div></div>
       </div>
       <div class="lg-card">
         <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge" style="background:rgba(100,80,200,0.2);color:#a090e0;border:1px solid rgba(100,80,200,0.3)">Formation</div></div>
-        <div class="lg-body"><div class="lg-type">Salle de formation</div><div class="lg-name">Centre Forma Fès</div><div class="lg-addr">Fès, Ville Nouvelle</div><div class="lg-details">Tableau smart · 30 places<br>Dispo: Lun–Ven 8h–18h</div><div class="lg-foot"><div class="lg-price">280 MAD <small>/h</small></div><button class="lg-btn">Réserver</button></div></div>
+        <div class="lg-body"><div class="lg-type">Salle de formation</div><div class="lg-name">Centre Forma Fès</div><div class="lg-addr">Fès, Ville Nouvelle</div><div class="lg-details">Tableau smart · 30 places<br>Dispo: Lun–Ven 8h–18h</div><div class="lg-foot"><div class="lg-price">280 MAD <small>/h</small></div><button class="lg-btn" onclick="openReserver('forma-fes')">Réserver</button></div></div>
       </div>
       <div class="lg-card">
         <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge cbadge-warm">Nouveau</div></div>
-        <div class="lg-body"><div class="lg-type">Bureau partagé</div><div class="lg-name">Open Space Meknès</div><div class="lg-addr">Meknès, Centre-ville</div><div class="lg-details">Espaces flex · Café inclus<br>Capacité: 5–25 pers.</div><div class="lg-foot"><div class="lg-price">180 MAD <small>/h</small></div><button class="lg-btn">Réserver</button></div></div>
+        <div class="lg-body"><div class="lg-type">Bureau partagé</div><div class="lg-name">Open Space Meknès</div><div class="lg-addr">Meknès, Centre-ville</div><div class="lg-details">Espaces flex · Café inclus<br>Capacité: 5–25 pers.</div><div class="lg-foot"><div class="lg-price">180 MAD <small>/h</small></div><button class="lg-btn" onclick="openReserver('openspace-meknes')">Réserver</button></div></div>
       </div>
       <div class="lg-card">
         <div class="lg-img"><div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=800&q=80')"></div><div class="lg-img-overlay"></div><div class="lg-badge" style="background:rgba(26,140,180,0.2);color:#52c0e0;border:1px solid rgba(26,140,180,0.3)">Premium</div></div>
-        <div class="lg-body"><div class="lg-type">Salle de conférence</div><div class="lg-name">Atlantic Conf Tanger</div><div class="lg-addr">Tanger, Zone Franche</div><div class="lg-details">Écran 4K · Visioconf HD<br>Capacité: 10–80 pers.</div><div class="lg-foot"><div class="lg-price">650 MAD <small>/h</small></div><button class="lg-btn">Réserver</button></div></div>
+        <div class="lg-body"><div class="lg-type">Salle de conférence</div><div class="lg-name">Atlantic Conf Tanger</div><div class="lg-addr">Tanger, Zone Franche</div><div class="lg-details">Écran 4K · Visioconf HD<br>Capacité: 10–80 pers.</div><div class="lg-foot"><div class="lg-price">650 MAD <small>/h</small></div><button class="lg-btn" onclick="openReserver('atlantic-tanger')">Réserver</button></div></div>
       </div>
     </div>
 
@@ -1213,9 +1213,9 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
   <footer>
     <div class="footer-logo"><div class="nav-logo-dot"></div>Space<span style="color:var(--red2)">Rental</span></div>
     <div class="footer-links">
-      <button class="footer-link">À propos</button>
-      <button class="footer-link">Contact</button>
-      <button class="footer-link">Conditions</button>
+      <button class="footer-link" onclick="openPage('apropos')">À propos</button>
+      <button class="footer-link" onclick="openPage('contact')">Contact</button>
+      <button class="footer-link" onclick="openPage('conditions')">Conditions</button>
     </div>
     <div class="footer-copy">© 2025 Space Rental Maroc</div>
   </footer>
@@ -1287,6 +1287,521 @@ document.querySelectorAll('.lf-pill').forEach(pill=>{
     </p>
   </div>
 </div>
+
+
+<!-- ══ DRAWER: À PROPOS ══ -->
+<div id="drawer-apropos" style="display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);align-items:flex-end;justify-content:center;" onclick="if(event.target===this)closePage('apropos')">
+  <div style="background:var(--dark2);border:1px solid var(--border2);border-radius:20px 20px 0 0;width:min(860px,100vw);max-height:85vh;overflow-y:auto;padding:48px 56px 56px;position:relative;">
+    <button onclick="closePage('apropos')" style="position:absolute;top:20px;right:24px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:20px;">✕</button>
+    
+    <div style="width:40px;height:3px;background:var(--red);margin-bottom:28px;border-radius:2px;"></div>
+    <h2 style="font-family:var(--serif);font-size:2.8rem;font-weight:900;margin-bottom:8px;">À propos de <span style="color:var(--red2)">Space Rental</span></h2>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:48px;font-weight:300;">La plateforme de référence pour la location d'espaces professionnels au Maroc.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:48px;">
+      <div>
+        <div style="width:36px;height:36px;border-radius:8px;background:var(--red-dim);border:1px solid rgba(192,57,43,.25);display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red2)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 style="font-family:var(--serif);font-size:1.2rem;font-weight:700;margin-bottom:10px;">Notre mission</h3>
+        <p style="font-size:13.5px;color:var(--muted);line-height:1.8;font-weight:300;">Connecter les professionnels marocains avec les meilleurs espaces de travail, de réunion et d'événements. Nous croyons que chaque projet mérite un espace à la hauteur.</p>
+      </div>
+      <div>
+        <div style="width:36px;height:36px;border-radius:8px;background:var(--red-dim);border:1px solid rgba(192,57,43,.25);display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red2)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 style="font-family:var(--serif);font-size:1.2rem;font-weight:700;margin-bottom:10px;">Notre histoire</h3>
+        <p style="font-size:13.5px;color:var(--muted);line-height:1.8;font-weight:300;">Fondée en 2023 à Casablanca, Space Rental est née d'un constat simple : trouver un espace professionnel au Maroc était trop compliqué. En deux ans, nous avons changé ça.</p>
+      </div>
+      <div>
+        <div style="width:36px;height:36px;border-radius:8px;background:var(--red-dim);border:1px solid rgba(192,57,43,.25);display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red2)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 style="font-family:var(--serif);font-size:1.2rem;font-weight:700;margin-bottom:10px;">Notre équipe</h3>
+        <p style="font-size:13.5px;color:var(--muted);line-height:1.8;font-weight:300;">Une équipe de 12 passionnés basés à Casablanca, Rabat et Marrakech. Développeurs, designers et experts immobiliers unis par une vision commune : simplifier l'accès aux espaces.</p>
+      </div>
+      <div>
+        <div style="width:36px;height:36px;border-radius:8px;background:var(--red-dim);border:1px solid rgba(192,57,43,.25);display:flex;align-items:center;justify-content:center;margin-bottom:14px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--red2)" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3 style="font-family:var(--serif);font-size:1.2rem;font-weight:700;margin-bottom:10px;">Nos chiffres</h3>
+        <p style="font-size:13.5px;color:var(--muted);line-height:1.8;font-weight:300;">200+ espaces référencés, 15 villes couvertes, 5 000+ réservations effectuées et une note moyenne de 4.9/5. La confiance de nos utilisateurs est notre plus belle récompense.</p>
+      </div>
+    </div>
+
+    <div style="background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div>
+        <p style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;">Vous avez un espace à louer ?</p>
+        <p style="font-size:13px;color:var(--muted);font-weight:300;">Rejoignez notre réseau de propriétaires et commencez à générer des revenus.</p>
+      </div>
+      <button style="background:var(--red);color:white;border:none;padding:12px 24px;border-radius:8px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;">Devenir partenaire →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DRAWER: CONTACT ══ -->
+<div id="drawer-contact" style="display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);align-items:flex-end;justify-content:center;" onclick="if(event.target===this)closePage('contact')">
+  <div style="background:var(--dark2);border:1px solid var(--border2);border-radius:20px 20px 0 0;width:min(860px,100vw);max-height:85vh;overflow-y:auto;padding:48px 56px 56px;position:relative;">
+    <button onclick="closePage('contact')" style="position:absolute;top:20px;right:24px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:20px;">✕</button>
+    
+    <div style="width:40px;height:3px;background:var(--red);margin-bottom:28px;border-radius:2px;"></div>
+    <h2 style="font-family:var(--serif);font-size:2.8rem;font-weight:900;margin-bottom:8px;">Contactez-<span style="color:var(--red2)">nous</span></h2>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:40px;font-weight:300;">Notre équipe répond sous 24h. Nous sommes là pour vous aider.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+      <!-- Form -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div>
+            <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:7px;">Prénom</label>
+            <input type="text" placeholder="Karim" style="width:100%;background:var(--dark3);border:1px solid var(--border2);color:var(--text);font-family:var(--sans);font-size:13.5px;padding:11px 14px;border-radius:7px;outline:none;" onfocus="this.style.borderColor='rgba(192,57,43,.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.14)'">
+          </div>
+          <div>
+            <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:7px;">Nom</label>
+            <input type="text" placeholder="Alaoui" style="width:100%;background:var(--dark3);border:1px solid var(--border2);color:var(--text);font-family:var(--sans);font-size:13.5px;padding:11px 14px;border-radius:7px;outline:none;" onfocus="this.style.borderColor='rgba(192,57,43,.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.14)'">
+          </div>
+        </div>
+        <div>
+          <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:7px;">Email</label>
+          <input type="email" placeholder="vous@exemple.com" style="width:100%;background:var(--dark3);border:1px solid var(--border2);color:var(--text);font-family:var(--sans);font-size:13.5px;padding:11px 14px;border-radius:7px;outline:none;" onfocus="this.style.borderColor='rgba(192,57,43,.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.14)'">
+        </div>
+        <div>
+          <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:7px;">Sujet</label>
+          <select style="width:100%;background:var(--dark3);border:1px solid var(--border2);color:var(--text);font-family:var(--sans);font-size:13.5px;padding:11px 14px;border-radius:7px;outline:none;appearance:none;">
+            <option>Réservation</option>
+            <option>Problème technique</option>
+            <option>Devenir partenaire</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:7px;">Message</label>
+          <textarea placeholder="Votre message…" rows="4" style="width:100%;background:var(--dark3);border:1px solid var(--border2);color:var(--text);font-family:var(--sans);font-size:13.5px;padding:11px 14px;border-radius:7px;outline:none;resize:vertical;" onfocus="this.style.borderColor='rgba(192,57,43,.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.14)'"></textarea>
+        </div>
+        <button style="background:var(--red);color:white;border:none;padding:13px;border-radius:8px;font-family:var(--sans);font-size:13.5px;font-weight:500;cursor:pointer;" onmouseover="this.style.background='#a93226'" onmouseout="this.style.background='var(--red)'">Envoyer le message</button>
+      </div>
+
+      <!-- Info -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="background:var(--dark3);border:1px solid var(--border);border-radius:10px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:34px;height:34px;border-radius:8px;background:var(--red-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--red2)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <p style="font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;">Téléphone</p>
+            <p style="font-size:14px;color:var(--text);font-weight:500;">+212 5 22 00 00 00</p>
+          </div>
+        </div>
+        <div style="background:var(--dark3);border:1px solid var(--border);border-radius:10px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:34px;height:34px;border-radius:8px;background:var(--red-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--red2)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <p style="font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;">Email</p>
+            <p style="font-size:14px;color:var(--text);font-weight:500;">contact@spacerental.ma</p>
+          </div>
+        </div>
+        <div style="background:var(--dark3);border:1px solid var(--border);border-radius:10px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start;">
+          <div style="width:34px;height:34px;border-radius:8px;background:var(--red-dim);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--red2)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <p style="font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:4px;">Adresse</p>
+            <p style="font-size:14px;color:var(--text);font-weight:500;">123 Boulevard Anfa<br>Casablanca 20000</p>
+          </div>
+        </div>
+        <div style="background:var(--dark3);border:1px solid var(--border);border-radius:10px;padding:20px 22px;">
+          <p style="font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:12px;">Horaires support</p>
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px;"><span style="color:var(--text)">Lun – Ven</span><span style="color:var(--muted)">9h – 18h</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--text)">Sam</span><span style="color:var(--muted)">9h – 13h</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DRAWER: CONDITIONS ══ -->
+<div id="drawer-conditions" style="display:none;position:fixed;inset:0;z-index:998;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);align-items:flex-end;justify-content:center;" onclick="if(event.target===this)closePage('conditions')">
+  <div style="background:var(--dark2);border:1px solid var(--border2);border-radius:20px 20px 0 0;width:min(860px,100vw);max-height:85vh;overflow-y:auto;padding:48px 56px 56px;position:relative;">
+    <button onclick="closePage('conditions')" style="position:absolute;top:20px;right:24px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:20px;">✕</button>
+    
+    <div style="width:40px;height:3px;background:var(--red);margin-bottom:28px;border-radius:2px;"></div>
+    <h2 style="font-family:var(--serif);font-size:2.8rem;font-weight:900;margin-bottom:8px;">Conditions <span style="color:var(--red2)">d'utilisation</span></h2>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:40px;font-weight:300;">Dernière mise à jour : janvier 2025</p>
+
+    <div style="display:flex;flex-direction:column;gap:32px;">
+      
+      <div style="padding-bottom:32px;border-bottom:1px solid var(--border);">
+        <h3 style="font-family:var(--serif);font-size:1.2rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;"><span style="color:var(--red2);font-size:1rem;">01.</span> Acceptation des conditions</h3>
+        <p style="font-size:13.5px;color:var(--muted);line-height:1.85;font-weight:300;">En accédant à la plateforme Space Rental, vous acceptez d'être lié par les présentes conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser nos services. Nous nous réservons le droit de modifier ces conditions à tout moment.</p>
+      </div>
+
+      <div style="padding-bottom:32px;border-bottom:1px solid var(--border);">
+        <h3 style="font-family:var(--serif);font-size:1.2rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;"><span style="color:var(--red2);font-size:1rem;">02.</span> Réservations et paiements</h3>
+        <p style="font-size:13.5px;color:var(--muted);line-height:1.85;font-weight:300;">Toute réservation effectuée sur Space Rental est soumise à confirmation par le propriétaire de l'espace. Le paiement est sécurisé et traité via nos partenaires certifiés. Aucune donnée bancaire n'est stockée sur nos serveurs.</p>
+      </div>
+
+      <div style="padding-bottom:32px;border-bottom:1px solid var(--border);">
+        <h3 style="font-family:var(--serif);font-size:1.2rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;"><span style="color:var(--red2);font-size:1rem;">03.</span> Politique d'annulation</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;">
+          <div style="background:var(--dark3);border:1px solid var(--border);border-radius:8px;padding:16px;">
+            <p style="font-size:12px;font-weight:500;color:var(--text);margin-bottom:6px;">Annulation &gt; 48h avant</p>
+            <p style="font-size:13px;color:rgba(40,180,100,0.9);font-weight:500;">Remboursement complet</p>
+          </div>
+          <div style="background:var(--dark3);border:1px solid var(--border);border-radius:8px;padding:16px;">
+            <p style="font-size:12px;font-weight:500;color:var(--text);margin-bottom:6px;">Annulation 24h–48h avant</p>
+            <p style="font-size:13px;color:#e8a84a;font-weight:500;">Remboursement 50%</p>
+          </div>
+          <div style="background:var(--dark3);border:1px solid var(--border);border-radius:8px;padding:16px;">
+            <p style="font-size:12px;font-weight:500;color:var(--text);margin-bottom:6px;">Annulation &lt; 24h avant</p>
+            <p style="font-size:13px;color:var(--red2);font-weight:500;">Aucun remboursement</p>
+          </div>
+          <div style="background:var(--dark3);border:1px solid var(--border);border-radius:8px;padding:16px;">
+            <p style="font-size:12px;font-weight:500;color:var(--text);margin-bottom:6px;">Annulation par le propriétaire</p>
+            <p style="font-size:13px;color:rgba(40,180,100,0.9);font-weight:500;">Remboursement + 10% crédit</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding-bottom:32px;border-bottom:1px solid var(--border);">
+        <h3 style="font-family:var(--serif);font-size:1.2rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;"><span style="color:var(--red2);font-size:1rem;">04.</span> Responsabilités</h3>
+        <p style="font-size:13.5px;color:var(--muted);line-height:1.85;font-weight:300;">Space Rental agit en tant qu'intermédiaire entre les locataires et les propriétaires. Nous ne sommes pas responsables des dommages causés à l'espace loué. L'utilisateur s'engage à respecter les règles de chaque espace et à le restituer dans l'état initial.</p>
+      </div>
+
+      <div>
+        <h3 style="font-family:var(--serif);font-size:1.2rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;"><span style="color:var(--red2);font-size:1rem;">05.</span> Protection des données</h3>
+        <p style="font-size:13.5px;color:var(--muted);line-height:1.85;font-weight:300;">Vos données personnelles sont traitées conformément à la loi 09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel au Maroc. Vous pouvez exercer vos droits d'accès, de rectification et de suppression en nous contactant à privacy@spacerental.ma</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function openPage(id) {
+  const el = document.getElementById('drawer-' + id);
+  el.style.display = 'flex';
+  setTimeout(() => el.querySelector('div').style.transform = 'translateY(0)', 10);
+}
+function closePage(id) {
+  document.getElementById('drawer-' + id).style.display = 'none';
+}
+</script>
+
+
+<!-- ══ MODAL RÉSERVATION ══ -->
+<div id="modal-reserver" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.75);backdrop-filter:blur(10px);align-items:center;justify-content:center;" onclick="if(event.target===this)closeReserver()">
+  <div style="background:var(--dark2);border:1px solid var(--border2);border-radius:18px;width:min(560px,92vw);max-height:90vh;overflow-y:auto;position:relative;">
+    
+    <!-- Header with photo bg -->
+    <div id="res-header" style="height:140px;border-radius:18px 18px 0 0;background:var(--dark3);position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,12,10,0.9),rgba(14,12,10,0.3));z-index:1;"></div>
+      <div style="position:absolute;bottom:20px;left:28px;z-index:2;">
+        <div id="res-type" style="font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--red2);margin-bottom:4px;font-weight:500;"></div>
+        <div id="res-name" style="font-family:var(--serif);font-size:1.6rem;font-weight:900;color:white;"></div>
+      </div>
+      <button onclick="closeReserver()" style="position:absolute;top:14px;right:16px;z-index:3;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.15);color:white;cursor:pointer;font-size:16px;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;">✕</button>
+    </div>
+
+    <div style="padding:28px 32px 36px;">
+      
+      <!-- Info chips -->
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;">
+        <div id="res-location" style="font-size:12px;color:var(--muted);background:var(--dark3);border:1px solid var(--border);padding:5px 12px;border-radius:50px;display:flex;align-items:center;gap:5px;">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span></span>
+        </div>
+        <div id="res-cap" style="font-size:12px;color:var(--muted);background:var(--dark3);border:1px solid var(--border);padding:5px 12px;border-radius:50px;display:flex;align-items:center;gap:5px;">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <span></span>
+        </div>
+        <div id="res-equip" style="font-size:12px;color:var(--muted);background:var(--dark3);border:1px solid var(--border);padding:5px 12px;border-radius:50px;"></div>
+      </div>
+
+      <!-- Date + time -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+        <div>
+          <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:7px;">Date</label>
+          <input type="date" id="res-date" style="width:100%;background:var(--dark3);border:1px solid var(--border2);color:var(--text);font-family:var(--sans);font-size:13.5px;padding:11px 14px;border-radius:7px;outline:none;color-scheme:dark;" onfocus="this.style.borderColor='rgba(192,57,43,.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.14)'">
+        </div>
+        <div>
+          <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:7px;">Durée</label>
+          <select id="res-duree" onchange="updateTotal()" style="width:100%;background:var(--dark3);border:1px solid var(--border2);color:var(--text);font-family:var(--sans);font-size:13.5px;padding:11px 14px;border-radius:7px;outline:none;appearance:none;">
+            <option value="1">1 heure</option>
+            <option value="2">2 heures</option>
+            <option value="3">3 heures</option>
+            <option value="4">4 heures</option>
+            <option value="8">Journée complète</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;">
+        <div>
+          <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:7px;">Heure de début</label>
+          <select style="width:100%;background:var(--dark3);border:1px solid var(--border2);color:var(--text);font-family:var(--sans);font-size:13.5px;padding:11px 14px;border-radius:7px;outline:none;appearance:none;">
+            <option>08:00</option><option>09:00</option><option>10:00</option>
+            <option>11:00</option><option>12:00</option><option>13:00</option>
+            <option>14:00</option><option>15:00</option><option>16:00</option>
+            <option>17:00</option><option>18:00</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:7px;">Nombre de pers.</label>
+          <input type="number" min="1" value="5" style="width:100%;background:var(--dark3);border:1px solid var(--border2);color:var(--text);font-family:var(--sans);font-size:13.5px;padding:11px 14px;border-radius:7px;outline:none;" onfocus="this.style.borderColor='rgba(192,57,43,.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.14)'">
+        </div>
+      </div>
+
+      <!-- Note -->
+      <div style="margin-bottom:24px;">
+        <label style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;display:block;margin-bottom:7px;">Note (optionnel)</label>
+        <textarea placeholder="Précisez vos besoins particuliers…" rows="2" style="width:100%;background:var(--dark3);border:1px solid var(--border2);color:var(--text);font-family:var(--sans);font-size:13.5px;padding:11px 14px;border-radius:7px;outline:none;resize:none;" onfocus="this.style.borderColor='rgba(192,57,43,.5)'" onblur="this.style.borderColor='rgba(255,255,255,0.14)'"></textarea>
+      </div>
+
+      <!-- Total -->
+      <div style="background:var(--dark3);border:1px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:3px;">Total estimé</div>
+          <div id="res-total" style="font-family:var(--serif);font-size:1.7rem;font-weight:900;color:#e8a84a;"></div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:11px;color:var(--muted);">Paiement à la confirmation</div>
+          <div style="font-size:11px;color:rgba(40,180,100,0.8);margin-top:3px;">✓ Annulation gratuite 48h avant</div>
+        </div>
+      </div>
+
+      <button onclick="confirmReservation()" style="width:100%;background:var(--red);color:white;border:none;padding:14px;border-radius:8px;font-family:var(--sans);font-size:14px;font-weight:500;cursor:pointer;transition:background .2s;" onmouseover="this.style.background='#a93226'" onmouseout="this.style.background='var(--red)'">
+        Confirmer la réservation
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MODAL CONFIRMATION ══ -->
+<div id="modal-confirm" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.8);backdrop-filter:blur(12px);align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:var(--dark2);border:1px solid var(--border2);border-radius:18px;padding:52px 44px;width:min(420px,90vw);text-align:center;">
+    <div style="width:64px;height:64px;border-radius:50%;background:rgba(40,180,100,0.15);border:2px solid rgba(40,180,100,0.4);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:28px;">✓</div>
+    <h3 style="font-family:var(--serif);font-size:1.8rem;font-weight:900;margin-bottom:10px;">Réservation confirmée !</h3>
+    <p style="font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:28px;font-weight:300;">Un email de confirmation vous a été envoyé. Vous pouvez suivre votre réservation dans votre espace personnel.</p>
+    <button onclick="document.getElementById('modal-confirm').style.display='none'" style="background:var(--red);color:white;border:none;padding:13px 32px;border-radius:8px;font-family:var(--sans);font-size:13.5px;font-weight:500;cursor:pointer;">Parfait !</button>
+  </div>
+</div>
+
+<script>
+var currentSpace = null;
+
+var spacesData = [{"id": "hub-casa", "name": "Le Hub Casablanca", "type": "Bureau privé", "location": "Casablanca, Maarif", "price": "350 MAD", "unit": "heure", "cap": "1–15 pers.", "equip": "WiFi · Clim · Café"}, {"id": "conf-rabat", "name": "Espace Conf Rabat", "type": "Salle de réunion", "location": "Rabat, Hassan", "price": "200 MAD", "unit": "heure", "cap": "2–20 pers.", "equip": "Projecteur · WiFi · Tableau"}, {"id": "hall-marrakech", "name": "Grand Hall Marrakech", "type": "Événementiel", "location": "Marrakech, Guéliz", "price": "1 200 MAD", "unit": "jour", "cap": "50–500 pers.", "equip": "Scène · Son · Lumière"}, {"id": "workhub-tanger", "name": "WorkHub Tanger", "type": "Coworking", "location": "Tanger, Médina", "price": "150 MAD", "unit": "heure", "cap": "1–50 pers.", "equip": "WiFi fibre · Café · Locker"}, {"id": "studio-agadir", "name": "Studio Photo Agadir", "type": "Studio photo/vidéo", "location": "Agadir, Talborjt", "price": "450 MAD", "unit": "heure", "cap": "1–10 pers.", "equip": "Fond · Éclairage pro · Rail"}, {"id": "forma-fes", "name": "Centre Forma Fès", "type": "Salle de formation", "location": "Fès, Ville Nouvelle", "price": "280 MAD", "unit": "heure", "cap": "5–30 pers.", "equip": "Tableau smart · Vidéo · WiFi"}, {"id": "openspace-meknes", "name": "Open Space Meknès", "type": "Bureau partagé", "location": "Meknès, Centre-ville", "price": "180 MAD", "unit": "heure", "cap": "5–25 pers.", "equip": "Café · Flex desk · Locker"}, {"id": "atlantic-tanger", "name": "Atlantic Conf Tanger", "type": "Salle de conférence", "location": "Tanger, Zone Franche", "price": "650 MAD", "unit": "heure", "cap": "10–80 pers.", "equip": "Écran 4K · Visioconf HD"}];
+
+function openReserver(spaceId) {
+  var space = spacesData.find(function(s){ return s.id === spaceId; });
+  if (!space) return;
+  currentSpace = space;
+
+  document.getElementById('res-name').textContent = space.name;
+  document.getElementById('res-type').textContent = space.type;
+  document.getElementById('res-location').querySelector('span').textContent = space.location;
+  document.getElementById('res-cap').querySelector('span').textContent = space.cap;
+  document.getElementById('res-equip').textContent = space.equip;
+
+  // Set min date to today
+  var today = new Date().toISOString().split('T')[0];
+  document.getElementById('res-date').min = today;
+  document.getElementById('res-date').value = today;
+
+  updateTotal();
+  document.getElementById('modal-reserver').style.display = 'flex';
+}
+
+function updateTotal() {
+  if (!currentSpace) return;
+  var duree = parseInt(document.getElementById('res-duree').value);
+  var priceStr = currentSpace.price.replace(/[^0-9]/g, '');
+  var price = parseInt(priceStr);
+  var total = price * duree;
+  document.getElementById('res-total').textContent = total.toLocaleString('fr-MA') + ' MAD';
+}
+
+function closeReserver() {
+  document.getElementById('modal-reserver').style.display = 'none';
+}
+
+function confirmReservation() {
+  closeReserver();
+  document.getElementById('modal-confirm').style.display = 'flex';
+}
+</script>
+
+
+<!-- ══ MODAL RECHERCHE ══ -->
+<div id="modal-search" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.75);backdrop-filter:blur(10px);align-items:flex-start;justify-content:center;padding-top:80px;" onclick="if(event.target===this)closeSearch()">
+  <div style="background:var(--dark2);border:1px solid var(--border2);border-radius:18px;width:min(680px,92vw);position:relative;overflow:hidden;">
+    <div style="padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="search-input" type="text" placeholder="Bureau, salle de réunion, Casablanca…"
+        style="flex:1;background:none;border:none;outline:none;font-family:var(--sans);font-size:15px;color:var(--text);"
+        oninput="filterResults(this.value)">
+      <button onclick="closeSearch()" style="background:var(--dark3);border:1px solid var(--border);color:var(--muted);cursor:pointer;font-size:12px;padding:5px 10px;border-radius:6px;font-family:var(--sans);">ESC</button>
+    </div>
+    <div style="padding:14px 24px;border-bottom:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap;">
+      <button class="sf-pill active-sf" onclick="filterType(this,'all')">Tous</button>
+      <button class="sf-pill" onclick="filterType(this,'bureau')">Bureau</button>
+      <button class="sf-pill" onclick="filterType(this,'reunion')">Réunion</button>
+      <button class="sf-pill" onclick="filterType(this,'evenement')">Événement</button>
+      <button class="sf-pill" onclick="filterType(this,'coworking')">Coworking</button>
+      <button class="sf-pill" onclick="filterType(this,'studio')">Studio</button>
+    </div>
+    <div id="search-results" style="max-height:420px;overflow-y:auto;"></div>
+    <div id="search-empty" style="display:none;padding:48px;text-align:center;">
+      <div style="font-size:32px;margin-bottom:12px;">🔍</div>
+      <p style="font-size:14px;color:var(--muted);">Aucun espace trouvé</p>
+    </div>
+    <div style="padding:14px 24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-size:12px;color:var(--muted);" id="search-count">8 espaces disponibles</span>
+      <span style="font-size:12px;color:var(--muted);">Ctrl+K pour ouvrir</span>
+    </div>
+  </div>
+</div>
+
+<style>
+.sf-pill{font-size:12px;padding:6px 14px;border-radius:50px;cursor:pointer;border:1px solid var(--border2);background:none;color:var(--muted);font-family:var(--sans);transition:all .2s;}
+.sf-pill:hover,.sf-pill.active-sf{background:var(--red-dim);border-color:rgba(192,57,43,.35);color:var(--red2);}
+.search-result-item{padding:16px 24px;display:flex;align-items:center;gap:16px;cursor:pointer;border-bottom:1px solid var(--border);transition:background .15s;}
+.search-result-item:hover{background:rgba(255,255,255,0.03);}
+.search-result-item:last-child{border-bottom:none;}
+.sri-img{width:56px;height:44px;border-radius:7px;background-size:cover;background-position:center;flex-shrink:0;}
+.sri-type{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--red2);margin-bottom:3px;font-weight:500;}
+.sri-name{font-size:14px;font-weight:500;color:var(--text);margin-bottom:2px;}
+.sri-loc{font-size:12px;color:var(--muted);}
+.sri-price{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:#e8a84a;white-space:nowrap;}
+</style>
+
+<script>
+var searchSpaces = [{"id": "hub-casa", "name": "Le Hub Casablanca", "type": "Bureau privé", "location": "Casablanca, Maarif", "price": "350 MAD", "unit": "heure", "cap": "1–15 pers.", "equip": "WiFi · Clim · Café"}, {"id": "conf-rabat", "name": "Espace Conf Rabat", "type": "Salle de réunion", "location": "Rabat, Hassan", "price": "200 MAD", "unit": "heure", "cap": "2–20 pers.", "equip": "Projecteur · WiFi · Tableau"}, {"id": "hall-marrakech", "name": "Grand Hall Marrakech", "type": "Événementiel", "location": "Marrakech, Guéliz", "price": "1 200 MAD", "unit": "jour", "cap": "50–500 pers.", "equip": "Scène · Son · Lumière"}, {"id": "workhub-tanger", "name": "WorkHub Tanger", "type": "Coworking", "location": "Tanger, Médina", "price": "150 MAD", "unit": "heure", "cap": "1–50 pers.", "equip": "WiFi fibre · Café · Locker"}, {"id": "studio-agadir", "name": "Studio Photo Agadir", "type": "Studio photo/vidéo", "location": "Agadir, Talborjt", "price": "450 MAD", "unit": "heure", "cap": "1–10 pers.", "equip": "Fond · Éclairage pro · Rail"}, {"id": "forma-fes", "name": "Centre Forma Fès", "type": "Salle de formation", "location": "Fès, Ville Nouvelle", "price": "280 MAD", "unit": "heure", "cap": "5–30 pers.", "equip": "Tableau smart · Vidéo · WiFi"}, {"id": "openspace-meknes", "name": "Open Space Meknès", "type": "Bureau partagé", "location": "Meknès, Centre-ville", "price": "180 MAD", "unit": "heure", "cap": "5–25 pers.", "equip": "Café · Flex desk · Locker"}, {"id": "atlantic-tanger", "name": "Atlantic Conf Tanger", "type": "Salle de conférence", "location": "Tanger, Zone Franche", "price": "650 MAD", "unit": "heure", "cap": "10–80 pers.", "equip": "Écran 4K · Visioconf HD"}];
+var typeMap = {
+  'bureau': ['Bureau privé','Bureau partagé'],
+  'reunion': ['Salle de réunion','Salle de conférence','Salle de formation'],
+  'evenement': ['Événementiel'],
+  'coworking': ['Coworking'],
+  'studio': ['Studio photo/vidéo'],
+};
+var imgMap = {
+  'hub-casa': 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=200&q=60',
+  'conf-rabat': 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=200&q=60',
+  'hall-marrakech': 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&q=60',
+  'workhub-tanger': 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=200&q=60',
+  'studio-agadir': 'https://images.unsplash.com/photo-1554080353-a576cf803bda?w=200&q=60',
+  'forma-fes': 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=200&q=60',
+  'openspace-meknes': 'https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=200&q=60',
+  'atlantic-tanger': 'https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=200&q=60',
+};
+var currentSearchType = 'all';
+var currentSearchQuery = '';
+
+function openSearch() {
+  document.getElementById('modal-search').style.display = 'flex';
+  document.getElementById('search-input').value = '';
+  currentSearchType = 'all';
+  currentSearchQuery = '';
+  document.querySelectorAll('.sf-pill').forEach(function(p){ p.classList.remove('active-sf'); });
+  document.querySelectorAll('.sf-pill')[0].classList.add('active-sf');
+  renderSearchResults(searchSpaces);
+  setTimeout(function(){ document.getElementById('search-input').focus(); }, 100);
+}
+function closeSearch() {
+  document.getElementById('modal-search').style.display = 'none';
+}
+function filterType(btn, type) {
+  currentSearchType = type;
+  document.querySelectorAll('.sf-pill').forEach(function(p){ p.classList.remove('active-sf'); });
+  btn.classList.add('active-sf');
+  applySearchFilters();
+}
+function filterResults(query) {
+  currentSearchQuery = query.toLowerCase();
+  applySearchFilters();
+}
+function applySearchFilters() {
+  var filtered = searchSpaces.filter(function(s) {
+    var matchType = currentSearchType === 'all' || (typeMap[currentSearchType] && typeMap[currentSearchType].includes(s.type));
+    var matchQuery = !currentSearchQuery ||
+      s.name.toLowerCase().includes(currentSearchQuery) ||
+      s.location.toLowerCase().includes(currentSearchQuery) ||
+      s.type.toLowerCase().includes(currentSearchQuery);
+    return matchType && matchQuery;
+  });
+  renderSearchResults(filtered);
+}
+function renderSearchResults(list) {
+  var container = document.getElementById('search-results');
+  var empty = document.getElementById('search-empty');
+  var count = document.getElementById('search-count');
+  if (list.length === 0) {
+    container.innerHTML = '';
+    empty.style.display = 'block';
+    count.textContent = '0 espaces trouvés';
+    return;
+  }
+  empty.style.display = 'none';
+  count.textContent = list.length + ' espace' + (list.length > 1 ? 's' : '') + ' trouvé' + (list.length > 1 ? 's' : '');
+  container.innerHTML = list.map(function(s) {
+    return '<div class="search-result-item" onclick="selectSpace(\''+s.id+'\')">'+
+      '<div class="sri-img" style="background-image:url(\''+imgMap[s.id]+'\')"></div>'+
+      '<div class="sri-info">'+
+        '<div class="sri-type">'+s.type+'</div>'+
+        '<div class="sri-name">'+s.name+'</div>'+
+        '<div class="sri-loc">'+s.location+' · '+s.cap+'</div>'+
+      '</div>'+
+      '<div class="sri-price">'+s.price+'<span style="font-family:var(--sans);font-size:10px;color:var(--muted);font-weight:300;">/'+s.unit+'</span></div>'+
+    '</div>';
+  }).join('');
+}
+function selectSpace(id) {
+  closeSearch();
+  openReserver(id);
+}
+document.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey && e.key === 'k') || (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA')) {
+    e.preventDefault(); openSearch();
+  }
+  if (e.key === 'Escape') { closeSearch(); }
+});
+</script>
+
+
+<!-- ══ MODAL VIDEO ══ -->
+<div id="modal-video" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.92);backdrop-filter:blur(16px);align-items:center;justify-content:center;" onclick="if(event.target===this)closeVideo()">
+  <div style="position:relative;width:min(960px,92vw);">
+    <button onclick="closeVideo()" style="position:absolute;top:-44px;right:0;background:none;border:none;color:rgba(255,255,255,0.6);cursor:pointer;font-size:14px;font-family:var(--sans);display:flex;align-items:center;gap:6px;">
+      <span style="font-size:18px;">✕</span> Fermer
+    </button>
+    <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);background:#000;">
+      <video id="modal-vid" src="vd.prj2.mp4" controls style="width:100%;max-height:70vh;object-fit: cover;display:block;"></video>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;">
+      <div>
+        <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:.18em;color:var(--red2);margin-bottom:4px;">Visite virtuelle</div>
+        <div style="font-family:var(--serif);font-size:1.3rem;font-weight:700;color:white;">Découvrez nos espaces en action</div>
+      </div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.4);">Space Rental Maroc · 2025</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openVideo() {
+  var modal = document.getElementById('modal-video');
+  var vid = document.getElementById('modal-vid');
+  modal.style.display = 'flex';
+  vid.currentTime = 0;
+  vid.play();
+}
+function closeVideo() {
+  var modal = document.getElementById('modal-video');
+  var vid = document.getElementById('modal-vid');
+  modal.style.display = 'none';
+  vid.pause();
+}
+</script>
 
 </body>
 </html>
