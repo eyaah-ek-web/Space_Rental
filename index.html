@@ -340,11 +340,12 @@ h2.sec-title em{font-style:italic;font-weight:300;color:var(--muted)}
 .esp-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
 .esp-sort{display:flex;gap:8px}
 .sort-btn{
-  font-size:12px;padding:7px 14px;border-radius:6px;cursor:pointer;
+  font-size:12.5px;padding:8px 18px;border-radius:50px;cursor:pointer;
   border:1px solid var(--border2);background:none;color:var(--muted);
-  font-family:var(--sans);transition:all .2s;
+  font-family:var(--sans);transition:all .2s;font-weight:400;
 }
-.sort-btn:hover,.sort-btn.active-sort{background:var(--red-dim);border-color:rgba(192,57,43,.3);color:var(--red2)}
+.sort-btn:hover{border-color:rgba(192,57,43,.4);color:var(--red2);}
+.sort-btn.active-sort{background:var(--red);border-color:var(--red);color:white;font-weight:500;}
 .esp-view{display:flex;gap:4px}
 .view-btn{
   width:32px;height:32px;border-radius:6px;border:1px solid var(--border2);
@@ -556,8 +557,8 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
   /* Nav */
   nav { padding: 0 20px; height: 60px; }
   .nav-links { gap: 0; }
-  .nav-link { display: none; }
-  .nav-cta { padding: 8px 16px; font-size: 12px; }
+  .nav-link { font-size: 12px; padding: 6px 10px; }
+  .nav-cta { padding: 8px 14px; font-size: 12px; }
 
   /* Hero */
   #home { padding-top: 60px; }
@@ -623,8 +624,52 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
   .cta-btns { flex-direction: column; align-items: center; }
 }
 
-/* Small mobile ≤ 480px */
+/* ── HAMBURGER ── */
+.nav-hamburger{
+  display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:40px;height:40px;background:none;border:1px solid var(--border2);
+  border-radius:7px;cursor:pointer;padding:8px;
+}
+.nav-hamburger span{
+  display:block;height:1.5px;background:var(--text);border-radius:2px;
+  transition:transform .25s,opacity .25s;
+}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* ── MOBILE MENU ── */
+.mobile-menu{
+  display:none;position:fixed;top:60px;left:0;right:0;z-index:199;
+  background:rgba(20,18,16,0.97);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+  flex-direction:column;padding:16px 20px 24px;gap:4px;
+}
+.mobile-menu.open{display:flex}
+.mob-link{
+  font-size:15px;font-weight:400;color:var(--muted);
+  padding:13px 16px;border-radius:8px;cursor:pointer;
+  background:none;border:none;font-family:var(--sans);
+  text-align:left;transition:color .2s,background .2s;
+}
+.mob-link:hover{color:var(--text);background:rgba(255,255,255,0.05)}
+.mob-cta{
+  margin-top:8px;font-size:14px;font-weight:500;color:white;
+  padding:13px 20px;border-radius:8px;cursor:pointer;
+  background:var(--red);border:none;font-family:var(--sans);
+  transition:background .2s;
+}
+.mob-cta:hover{background:#a93226}
+
+
 @media (max-width: 480px) {
+  /* Nav mobile — hamburger */
+  nav { padding: 0 16px; height: 56px; }
+  .nav-link { display: none; }
+  .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+  .mobile-menu { top: 56px; }
+
   h1.hero-title { font-size: 2rem; }
   .listing-grid { grid-template-columns: 1fr; }
   .hero-stats { gap: 16px; }
@@ -649,7 +694,18 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
     <button class="nav-link" onclick="showPage('listing')">Listing</button>
     <button class="nav-cta" onclick="document.getElementById('modal').style.display='flex'">Connexion</button>
   </div>
+  <button class="nav-hamburger" id="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile menu drawer -->
+<div id="mobile-menu" class="mobile-menu">
+  <button class="mob-link" onclick="showPage('home');closeMobileMenu()">Accueil</button>
+  <button class="mob-link" onclick="showPage('espaces');closeMobileMenu()">Espaces</button>
+  <button class="mob-link" onclick="showPage('listing');closeMobileMenu()">Listing</button>
+  <button class="mob-cta" onclick="document.getElementById('modal').style.display='flex';closeMobileMenu()">Connexion</button>
+</div>
 
 <!-- ══════════════════════════════════
      PAGE 1 — HOME
@@ -928,7 +984,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
       </div>
       <div class="esp-cards">
         <!-- 6 cards -->
-        <div class="esp-card">
+        <div class="esp-card" data-price="350" data-order="1">
           <div class="esp-card-img">
             <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80')"></div>
           </div>
@@ -942,7 +998,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
             </div>
           </div>
         </div>
-        <div class="esp-card">
+        <div class="esp-card" data-price="200" data-order="2">
           <div class="esp-card-img">
             <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80')"></div>
           </div>
@@ -956,7 +1012,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
             </div>
           </div>
         </div>
-        <div class="esp-card">
+        <div class="esp-card" data-price="1200" data-order="3">
           <div class="esp-card-img">
             <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80')"></div>
           </div>
@@ -970,7 +1026,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
             </div>
           </div>
         </div>
-        <div class="esp-card">
+        <div class="esp-card" data-price="150" data-order="4">
           <div class="esp-card-img">
             <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80')"></div>
           </div>
@@ -984,7 +1040,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
             </div>
           </div>
         </div>
-        <div class="esp-card">
+        <div class="esp-card" data-price="450" data-order="5">
           <div class="esp-card-img">
             <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1554080353-a576cf803bda?w=800&q=80')"></div>
           </div>
@@ -998,7 +1054,7 @@ svg.icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;ver
             </div>
           </div>
         </div>
-        <div class="esp-card">
+        <div class="esp-card" data-price="280" data-order="6">
           <div class="esp-card-img">
             <div class="photo-bg" style="background-image:url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80')"></div>
           </div>
@@ -1230,11 +1286,30 @@ function showPage(id){
   document.querySelectorAll('.nav-link')[map[id]].classList.add('active-link');
   window.scrollTo(0,0);
 }
-// Sort btn toggle
+// Sort btn toggle + real sort logic
 document.querySelectorAll('.sort-btn').forEach(btn=>{
-  btn.addEventListener('click',function(){
-    this.closest('.esp-sort').querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active-sort'));
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active-sort'));
     this.classList.add('active-sort');
+
+    var label = this.textContent.trim();
+    var grid = document.querySelector('.esp-cards');
+    if (!grid) return;
+    var cards = Array.from(grid.querySelectorAll('.esp-card'));
+
+    cards.sort(function(a, b){
+      var pa = parseInt(a.dataset.price);
+      var pb = parseInt(b.dataset.price);
+      var oa = parseInt(a.dataset.order);
+      var ob = parseInt(b.dataset.order);
+
+      if (label === 'Prix ↑') return pa - pb;
+      if (label === 'Prix ↓') return pb - pa;
+      if (label === 'Récents') return ob - oa; // reverse order = most recent first
+      return oa - ob; // Populaire = original order
+    });
+
+    cards.forEach(function(card){ grid.appendChild(card); });
   });
 });
 // Filter pills
@@ -1759,7 +1834,17 @@ function selectSpace(id) {
   closeSearch();
   openReserver(id);
 }
-document.addEventListener('keydown', function(e) {
+function toggleMobileMenu(){
+  var menu = document.getElementById('mobile-menu');
+  var btn = document.getElementById('nav-hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function closeMobileMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('nav-hamburger').classList.remove('open');
+}
+
   if ((e.ctrlKey && e.key === 'k') || (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA')) {
     e.preventDefault(); openSearch();
   }
@@ -1775,7 +1860,7 @@ document.addEventListener('keydown', function(e) {
       <span style="font-size:18px;">✕</span> Fermer
     </button>
     <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);background:#000;">
-      <video id="modal-vid" src="vd.prj2.mp4" controls style="width:100%;max-height:70vh;object-fit: cover;display:block;"></video>
+      <video id="modal-vid" src="vd.prj2.mp4" controls style="width:100%;max-height:70vh;object-fit:cover;display:block;"></video>
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;">
       <div>
